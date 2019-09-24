@@ -8,7 +8,7 @@ package cz.vse.java.prom20.adventura.logika;
  * @version 1.0
  */
 
-
+//test
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
