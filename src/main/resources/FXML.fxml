@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="900.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8">
+    <children>
+        <SplitPane dividerPositions="0.045" orientation="VERTICAL" prefHeight="900.0" prefWidth="850.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <MenuBar layoutY="1.0" prefHeight="36.0" prefWidth="152.0">
+                            <menus>
+                                <Menu mnemonicParsing="false" text="File">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Close"/>
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Edit">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Delete"/>
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Help">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="About"/>
+                                    </items>
+                                </Menu>
+                            </menus>
+                        </MenuBar>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <SplitPane dividerPositions="0.66" layoutX="-1.0" orientation="VERTICAL" prefHeight="855.0"
+                                   prefWidth="850.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                    <children>
+                                        <SplitPane dividerPositions="0.33, 0.66" layoutX="-1.0" prefHeight="570.0"
+                                                   prefWidth="850.0">
+                                            <items>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
+                                                            prefWidth="100.0">
+                                                    <children>
+                                                        <SplitPane dividerPositions="0.5" layoutX="-4.0" layoutY="14.0"
+                                                                   orientation="VERTICAL"
+                                                                   AnchorPane.bottomAnchor="-11.0"
+                                                                   AnchorPane.leftAnchor="-1.0"
+                                                                   AnchorPane.rightAnchor="-1.0"
+                                                                   AnchorPane.topAnchor="0.0">
+                                                            <items>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0"
+                                                                            prefHeight="100.0" prefWidth="160.0">
+                                                                    <children>
+                                                                        <ListView fx:id="listOfItemsInRoom"
+                                                                                  layoutX="38.0" layoutY="54.0"
+                                                                                  prefHeight="200.0" prefWidth="200.0"/>
+                                                                        <Text layoutX="53.0" layoutY="29.0"
+                                                                              strokeType="OUTSIDE" strokeWidth="0.0"
+                                                                              text="Seznam věcí v místnosti">
+                                                                            <font>
+                                                                                <Font size="15.0"/>
+                                                                            </font>
+                                                                        </Text>
+                                                                    </children>
+                                                                </AnchorPane>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0"
+                                                                            prefHeight="100.0" prefWidth="160.0">
+                                                                    <children>
+                                                                        <ListView fx:id="listOfItemsInBackPack"
+                                                                                  layoutX="38.0" layoutY="42.0"
+                                                                                  prefHeight="200.0" prefWidth="200.0"/>
+                                                                        <Text layoutX="61.0" layoutY="23.0"
+                                                                              strokeType="OUTSIDE" strokeWidth="0.0"
+                                                                              text="Seznam věcí v batohu">
+                                                                            <font>
+                                                                                <Font size="15.0"/>
+                                                                            </font>
+                                                                        </Text>
+                                                                    </children>
+                                                                </AnchorPane>
+                                                            </items>
+                                                        </SplitPane>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
+                                                            prefWidth="100.0">
+                                                    <children>
+                                                        <Text layoutX="82.0" layoutY="461.0" strokeType="OUTSIDE"
+                                                              strokeWidth="0.0" text="Právě jsi v:">
+                                                            <font>
+                                                                <Font size="21.0"/>
+                                                            </font>
+                                                        </Text>
+                                                        <Text fx:id="textLokace" layoutX="36.0" layoutY="497.0"
+                                                              strokeType="OUTSIDE" strokeWidth="0.0"
+                                                              style="-fx-text-alignment: center;" text="test text"
+                                                              wrappingWidth="200.0">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Text>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                    <children>
+                                                        <SplitPane dividerPositions="0.5" layoutX="1.0"
+                                                                   orientation="VERTICAL" prefHeight="568.0"
+                                                                   prefWidth="284.0">
+                                                            <items>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0"
+                                                                            prefHeight="100.0" prefWidth="160.0">
+                                                                    <children>
+                                                                        <ListView fx:id="listOfPokemonsInRoom"
+                                                                                  layoutX="41.0" layoutY="54.0"
+                                                                                  prefHeight="200.0" prefWidth="200.0"/>
+                                                                        <Text layoutX="33.0" layoutY="29.0"
+                                                                              strokeType="OUTSIDE" strokeWidth="0.0"
+                                                                              text="Seznam pokémonů v místnosti">
+                                                                            <font>
+                                                                                <Font size="15.0"/>
+                                                                            </font>
+                                                                        </Text>
+                                                                    </children>
+                                                                </AnchorPane>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0"
+                                                                            prefHeight="163.0" prefWidth="256.0">
+                                                                    <children>
+                                                                        <ListView fx:id="listOfPokemonsInPokeball"
+                                                                                  layoutX="41.0" layoutY="42.0"
+                                                                                  prefHeight="200.0" prefWidth="200.0"/>
+                                                                        <Text layoutX="33.0" layoutY="29.0"
+                                                                              strokeType="OUTSIDE" strokeWidth="0.0"
+                                                                              text="Seznam pokémonů v pokébalu">
+                                                                            <font>
+                                                                                <Font size="15.0"/>
+                                                                            </font>
+                                                                        </Text>
+                                                                    </children>
+                                                                </AnchorPane>
+                                                            </items>
+                                                        </SplitPane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </items>
+                                        </SplitPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                    <children>
+                                        <SplitPane dividerPositions="0.5" layoutX="-1.0" layoutY="1.0"
+                                                   prefHeight="285.0" prefWidth="850.0">
+                                            <items>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
+                                                            prefWidth="100.0">
+                                                    <children>
+                                                        <ComboBox fx:id="listAkce" layoutX="102.0" layoutY="55.0"
+                                                                  prefHeight="27.0" prefWidth="216.0"/>
+                                                        <Button fx:id="buttonProved" layoutX="181.0" layoutY="153.0"
+                                                                mnemonicParsing="false" text="Button"/>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
+                                                            prefWidth="100.0">
+                                                    <children>
+                                                        <TextArea fx:id="textVypis" layoutX="10.0" layoutY="37.0"
+                                                                  prefHeight="232.0" prefWidth="400.0"/>
+                                                        <Text layoutX="151.0" layoutY="20.0" strokeType="OUTSIDE"
+                                                              strokeWidth="0.0" text="Výpis událostí">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Text>
+                                                    </children>
+                                                </AnchorPane>
+                                            </items>
+                                        </SplitPane>
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</Pane>

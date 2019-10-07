@@ -1,31 +1,27 @@
-/* Soubor je ulozen v kodovani UTF-8.
- * Kontrola kódování: Příliš žluťoučký kůň úpěl ďábelské ódy. */
+
 package cz.vse.java.prom20.adventura.main;
 
 
+import cz.vse.java.prom20.adventura.logika.Hra;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
-import cz.vse.java.prom20.adventura.logika.*;
-import cz.vse.java.prom20.adventura.uiText.TextoveRozhrani;
 
-/*******************************************************************************
- * Třída  Start je hlavní třídou projektu,
- * který představuje jednoduchou textovou adventuru určenou k dalším úpravám a rozšiřování
- *
- * @author    Jarmila Pavlíčková, Miroslav Prokop
- * @version   1.0
- */
-public class Start
-{
-    /***************************************************************************
-     * Metoda, prostřednictvím níž se spouští celá aplikace.
-     *
-     * @param args Parametry příkazového řádku
-     */
-    public static void main(String[] args)
-    {
-        
-        IHra hra = new Hra();
-        TextoveRozhrani ui = new TextoveRozhrani(hra);
-        ui.hraj();
+public class Start extends Application {
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/FXML.fxml"));
+        primaryStage.setTitle("POKEMOOOOON!");
+        primaryStage.setScene(new Scene(root, 850, 900));
+        primaryStage.show();
     }
 }
