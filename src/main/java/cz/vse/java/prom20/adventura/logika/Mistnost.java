@@ -299,6 +299,18 @@ public class Mistnost {
                 .collect(Collectors.toSet());
     }
 
+    public Set<String> getNazvyPokemonu() {
+        return this.seznamPokemonu.stream()
+                .map(pokemon -> pokemon.getJmenoPokemona())
+                .collect(Collectors.toSet());
+    }
+
+    public Set<String> getNazvyVychodu() {
+        return this.getVychody().stream()
+                .map(mistnost -> mistnost.getNazev())
+                .collect(Collectors.toSet());
+    }
+
 
 
     /**

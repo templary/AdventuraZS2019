@@ -1,5 +1,7 @@
 package cz.vse.java.prom20.adventura.logika;
 
+import cz.vse.java.prom20.adventura.main.Controller;
+
 /**
  * Třída PrikazJdi implementuje pro hru příkaz jdi.
  * Tato třída je součástí jednoduché textové hry.
@@ -10,6 +12,7 @@ package cz.vse.java.prom20.adventura.logika;
 public class PrikazJdi implements IPrikaz {
     private static final String NAZEV = "jdi";
     private HerniPlan plan;
+    private Controller controller;
 
     /**
      * Konstruktor třídy

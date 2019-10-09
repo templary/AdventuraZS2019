@@ -8,7 +8,7 @@ package cz.vse.java.prom20.adventura.logika;
  * Vypisuje uvítací a ukončovací text hry.
  * Také vyhodnocuje jednotlivé příkazy zadané uživatelem.
  *
- * @author  Jarmila Pavlickova, Miroslav Prokop
+ * @author Jarmila Pavlickova, Miroslav Prokop
  * @version 1.0
  */
 
@@ -33,6 +33,8 @@ public class Hra implements IHra {
 
 
         batoh = new Batoh();
+        Vec elixirS = new Vec("elixírS", true, "Pomocí tohoto elixíru můžeš trénovat pokémona.(+4 síly.)");
+        batoh.pridejVec(elixirS); //TODO ODEBRAT TESTOVACÍ ITEM
         pokemoni = new Pokemoni();
 
 
@@ -119,21 +121,20 @@ public class Hra implements IHra {
     }
 
     /**
-     *
      * @return vrací pokémona
      */
     public Pokemon getPokemon() {
         return pokemon;
     }
+
     /**
-     *
      * @return vrací pokémony
      */
     public Pokemoni getPokemoni() {
         return pokemoni;
     }
+
     /**
-     *
      * @return vrací batoh
      */
     public Batoh getBatoh() {

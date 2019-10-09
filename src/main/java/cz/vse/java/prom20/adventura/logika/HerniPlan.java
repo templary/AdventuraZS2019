@@ -1,6 +1,5 @@
 package cz.vse.java.prom20.adventura.logika;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -68,6 +67,7 @@ public class HerniPlan {
         Pokemon pikacu = new Pokemon("Pikaču", 3, 3, 1);
         Pokemon bulbasaurus = new Pokemon("Bulbasaurus", 1, 3, 1);
         Pokemon charmaneder = new Pokemon("Charmander", 5, 3, 1);
+
         skola.vlozPokemona(pikacu);
         skola.vlozPokemona(bulbasaurus);
         skola.vlozPokemona(charmaneder);
