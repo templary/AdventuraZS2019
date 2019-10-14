@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="cz.vse.java.prom20.adventura.main.ControllerSouboje">
+    <children>
+        <SplitPane dividerPositions="0.35" layoutY="1.0" orientation="VERTICAL" prefHeight="300.0" prefWidth="600.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="199.0" prefWidth="321.0">
+                    <children>
+                        <SplitPane dividerPositions="0.5" layoutX="-1.0" prefHeight="100.0" prefWidth="600.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                    <children>
+                                        <Text fx:id="souperTextJmeno" layoutX="87.0" layoutY="31.0" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" style="-fx-text-alignment: center;" text="jmeno"
+                                              wrappingWidth="120.22900390625">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Text>
+                                        <Text layoutY="18.53515625" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              style="-fx-text-alignment: center;" text="SOUPEŘŮV"
+                                              wrappingWidth="72.22900390625" AnchorPane.leftAnchor="0.0"
+                                              AnchorPane.topAnchor="5.0">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Text>
+                                        <Text fx:id="souperTextTyp" layoutX="98.0" layoutY="54.0" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" style="-fx-text-alignment: center;" text="typ"
+                                              wrappingWidth="98.3798828125"/>
+                                        <Text layoutX="14.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              style="-fx-text-alignment: center;" text="LVL:"
+                                              wrappingWidth="35.3798828125"/>
+                                        <Text layoutX="196.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              style="-fx-text-alignment: center;" text="Síla:"
+                                              wrappingWidth="35.3798828125"/>
+                                        <Text fx:id="souperTextLVL" layoutX="49.0" layoutY="81.0" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" style="-fx-text-alignment: left;" text="lvlKolik"
+                                              wrappingWidth="48.22900390625"/>
+                                        <Text fx:id="souperTextSila" layoutX="231.0" layoutY="81.0" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" style="-fx-text-alignment: left;" text="silaKolik"
+                                              wrappingWidth="48.22900390625"/>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                    <children>
+                                        <Text fx:id="tvujTextJmeno" layoutX="87.0" layoutY="31.0" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" style="-fx-text-alignment: center;" text="jmeno"
+                                              wrappingWidth="120.22900390625">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Text>
+                                        <Text layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              style="-fx-text-alignment: center;" text="TVŮJ"
+                                              wrappingWidth="48.22900390625">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Text>
+                                        <Text fx:id="tvujTextTyp" layoutX="98.0" layoutY="54.0" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" style="-fx-text-alignment: center;" text="typ"
+                                              wrappingWidth="98.3798828125"/>
+                                        <Text fx:id="tvujTextLVL" layoutX="49.0" layoutY="81.0" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" style="-fx-text-alignment: left;" text="lvlKolik"
+                                              wrappingWidth="48.22900390625"/>
+                                        <Text layoutX="14.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              style="-fx-text-alignment: center;" text="LVL:"
+                                              wrappingWidth="35.3798828125"/>
+                                        <Text fx:id="tvujTextSila" layoutX="231.0" layoutY="81.0" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" style="-fx-text-alignment: left;" text="silaKolik"
+                                              wrappingWidth="48.22900390625"/>
+                                        <Text layoutX="196.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              style="-fx-text-alignment: center;" text="Síla:"
+                                              wrappingWidth="35.3798828125"/>
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <ComboBox fx:id="vyberPokemona" layoutX="224.0" layoutY="15.0" prefWidth="150.0"/>
+                        <Button fx:id="ButtonBoj" layoutX="272.0" layoutY="55.0" mnemonicParsing="false"
+                                onAction="#handleButtonBoj" text="Bojuj"/>
+                        <TextArea fx:id="textAreaVysledek" layoutX="145.0" layoutY="101.0" prefHeight="66.0"
+                                  prefWidth="308.0"/>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

@@ -1,16 +1,23 @@
 package cz.vse.java.prom20.adventura.main;
 
 import cz.vse.java.prom20.adventura.logika.*;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -22,11 +29,16 @@ public class Controller implements Initializable {
     Batoh batoh;
     HerniPlan herniPlan;
     Pokemoni pokemoni;
+    ControllerSouboje controllerSouboje;
+
+    private String predavanyPokemon;
+
+
 
     @FXML
-    TextArea text = new TextArea();
+    private TextArea text = new TextArea();
     @FXML
-    TextField terminal;
+    private TextField terminal;
     @FXML
     private ListView<String> listOfItemsInRoom = new ListView<String>();
     @FXML
@@ -43,7 +55,7 @@ public class Controller implements Initializable {
 
     private IHra hra;
 
-    public void inicializace(IHra hra) {
+    void inicializace(IHra hra) {
         this.hra = hra;
         batoh = new Batoh();
         pokemoni = new Pokemoni();
@@ -91,9 +103,9 @@ public class Controller implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 2) {
-                    String curentItem = listOfItemsInRoom.getSelectionModel().getSelectedItem();
-                    System.out.println(curentItem);
-                    textVypis.setText(hra.zpracujPrikaz("batoh seber " + curentItem));
+                    String currentItem = listOfItemsInRoom.getSelectionModel().getSelectedItem();
+                    System.out.println(currentItem);
+                    textVypis.setText(hra.zpracujPrikaz("batoh seber " + currentItem));
                     listRefresh();
 
                 }
@@ -107,18 +119,48 @@ public class Controller implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 2) {
-                    String curentItem = listOfPokemonsInRoom.getSelectionModel().getSelectedItem();
-                    System.out.println(curentItem);
-                    if (pokemoni.getSetChycenychPokemonu().size() < 1) {
-                        textVypis.setText(hra.zpracujPrikaz("chytni " + curentItem));
+                    String currentPokemon = listOfPokemonsInRoom.getSelectionModel().getSelectedItem();
+                    predavanyPokemon = currentPokemon;
+                    System.out.println(currentPokemon);
+                    start();
+                    // controllerSouboje.setSouperStats(currentPokemon); //TODO proč nemohu předat proměnou String do druhého controlleru?
+                    // controllerSouboje.setSouperStats();
+/*                    if (pokemoni.getSetChycenychPokemonu().size() < 1) {
+                        textVypis.setText(hra.zpracujPrikaz("chytni " + current));
                     } else {
                         //TODO Preprogramovat PrikazBojuj!
-                    }
+                    }*/
                     listRefresh();
 
                 }
             }
         });
+    }
+
+    public StringProperty getPredavanyPokemon() {
+        return new SimpleStringProperty(predavanyPokemon);
+    }
+
+    @FXML
+    private void handleButtonBoj(javafx.event.ActionEvent event) {
+        System.out.println("boj");
+        System.out.println(predavanyPokemon);
+    }
+
+
+    private void start() {
+        Parent root;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/FXMLSouboje.fxml"));
+            root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Souboje");
+            stage.setScene(new Scene(root, 600, 300));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -154,7 +196,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void setListOfItemsInBackPack() {
-        listOfItemsInBackPack.setItems(listSetter(batoh.getNazvyVeci())); //TODO
+        listOfItemsInBackPack.setItems(listSetter(batoh.getNazvyVeci())); //TODO Proč nemohu načíst listy?
     }
 
     @FXML
