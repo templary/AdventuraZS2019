@@ -1,6 +1,7 @@
 package cz.vse.java.prom20.adventura.main;
 
 
+import cz.vse.java.prom20.adventura.logika.KomunikaceControlleru;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
@@ -12,6 +13,7 @@ import java.util.ResourceBundle;
 public class ControllerSouboje implements Initializable {
 
 
+    KomunikaceControlleru komunikaceControlleru;
     Controller controller;
     @FXML
     private Text souperTextLVL;
@@ -27,7 +29,7 @@ public class ControllerSouboje implements Initializable {
 
     @FXML
     private void handleButtonBoj(javafx.event.ActionEvent event) {
-
+        System.out.println(komunikaceControlleru.getPredavanyPokemon());
     }
 
 

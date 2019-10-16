@@ -1,11 +1,14 @@
 package cz.vse.java.prom20.adventura;
 
-import cz.vse.java.prom20.adventura.logika.*;
+import cz.vse.java.prom20.adventura.logika.Hra;
+import cz.vse.java.prom20.adventura.logika.Mistnost;
+import cz.vse.java.prom20.adventura.logika.Pokemon;
+import cz.vse.java.prom20.adventura.logika.Vec;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /*******************************************************************************
  * Testovací třída HraTest slouží ke komplexnímu otestování
@@ -189,7 +192,7 @@ public class HraTest {
      * Test se postaví do poslední místnosti a zkusí, jestli jde vyhrát.
      * */
     @Test
-    public void testJdeHraDohrát() {
+    public void testJdeHraDohrat() {
         Mistnost skola = new Mistnost("škola", "Zde si vybereš prvního pokemona",  2, 2);
         hra1.getHerniPlan().setAktualniMistnost(skola);
         Pokemon pikacu = new Pokemon("Pikaču", 3, 3, 1000);

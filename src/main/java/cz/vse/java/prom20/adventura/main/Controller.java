@@ -29,7 +29,9 @@ public class Controller implements Initializable {
     Batoh batoh;
     HerniPlan herniPlan;
     Pokemoni pokemoni;
+    Pokemon pokemon;
     ControllerSouboje controllerSouboje;
+    KomunikaceControlleru komunikaceControlleru;
 
     private String predavanyPokemon;
 
@@ -49,7 +51,6 @@ public class Controller implements Initializable {
     private ListView<String> listOfPokemonsInPokeball = new ListView<String>();
     @FXML
     private ListView<String> listOfExits = new ListView<String>();
-
     @FXML
     private TextArea textVypis;
 
@@ -57,12 +58,13 @@ public class Controller implements Initializable {
 
     void inicializace(IHra hra) {
         this.hra = hra;
-        batoh = new Batoh();
-        pokemoni = new Pokemoni();
+        //batoh = new Batoh();
+        batoh = hra.getBatoh();
+        pokemoni = hra.getPokemoni();
         textVypis.setText(this.hra.vratUvitani());
         setlistOfItemsInRoom();
         setListOfPokemonsInRoom();
-        //setListOfItemsInBackPack();
+        setListOfItemsInBackPack();
         setListOfExits();
     }
 
@@ -120,11 +122,10 @@ public class Controller implements Initializable {
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 2) {
                     String currentPokemon = listOfPokemonsInRoom.getSelectionModel().getSelectedItem();
-                    predavanyPokemon = currentPokemon;
+                    // hra.getKomunikaceKontroleru();
                     System.out.println(currentPokemon);
                     start();
-                    // controllerSouboje.setSouperStats(currentPokemon); //TODO proč nemohu předat proměnou String do druhého controlleru?
-                    // controllerSouboje.setSouperStats();
+
 /*                    if (pokemoni.getSetChycenychPokemonu().size() < 1) {
                         textVypis.setText(hra.zpracujPrikaz("chytni " + current));
                     } else {
@@ -196,7 +197,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void setListOfItemsInBackPack() {
-        listOfItemsInBackPack.setItems(listSetter(batoh.getNazvyVeci())); //TODO Proč nemohu načíst listy?
+        listOfItemsInBackPack.setItems(listSetter(batoh.getNazvyVeci()));
     }
 
     @FXML
@@ -206,6 +207,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void setlistOfPokemonsInPokeball() {
+        //noinspection unchecked
         listOfPokemonsInPokeball.setItems(listSetter(pokemoni.getNazvyChycenychPokemonu())); //TODO
     }
 

@@ -17,6 +17,8 @@ import java.util.Set;
  */
 public class HerniPlan {
 
+    Pokemoni pokemoni;//TODO TEST
+
     private Mistnost aktualniMistnost;
     public Set<Mistnost> seznamMistnosti;
     public Set<Pokemon> seznamPokemonu;

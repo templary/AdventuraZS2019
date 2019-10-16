@@ -20,21 +20,28 @@ public class Hra implements IHra {
     private Pokemon pokemon;
     private Pokemoni pokemoni;
     private Vec vec;
+    //private KomunikaceControlleru komunikaceControlleru;
 
     /**
      * Vytváří hru a inicializuje místnosti (prostřednictvím třídy HerniPlan) a seznam platných příkazů.
      */
     public Hra() {
         herniPlan = new HerniPlan();
+        //komunikaceControlleru = new KomunikaceControlleru();
         platnePrikazy = new SeznamPrikazu();
+
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
         platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazKonec(this));
 
 
         batoh = new Batoh();
+        //TODO ------------------------------ Testovací entity.
+
         Vec elixirS = new Vec("elixírS", true, "Pomocí tohoto elixíru můžeš trénovat pokémona.(+4 síly.)");
-        batoh.pridejVec(elixirS); //TODO ODEBRAT TESTOVACÍ ITEM
+        batoh.pridejVec(elixirS);
+
+        //TODO ------------------------------
         pokemoni = new Pokemoni();
 
 
@@ -45,6 +52,8 @@ public class Hra implements IHra {
         platnePrikazy.vlozPrikaz(new PrikazTrenuj(this.batoh, this.pokemoni));
         platnePrikazy.vlozPrikaz(new PrikazInfo(this.herniPlan, this.pokemoni));
         platnePrikazy.vlozPrikaz(new PrikazFinal(this.herniPlan, this.pokemoni, this));
+
+
     }
 
     /**
@@ -116,6 +125,8 @@ public class Hra implements IHra {
      *
      * @return odkaz na herní plán
      */
+
+
     public HerniPlan getHerniPlan() {
         return herniPlan;
     }
@@ -141,5 +152,8 @@ public class Hra implements IHra {
         return batoh;
     }
 
+/*    public KomunikaceControlleru getKomunikaceControlleru() {
+        return komunikaceControlleru;
+    }*/
 }
 

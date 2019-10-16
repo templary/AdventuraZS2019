@@ -2,11 +2,11 @@
 package cz.vse.java.prom20.adventura;
 
 import cz.vse.java.prom20.adventura.logika.*;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 
 /*******************************************************************************
@@ -18,7 +18,6 @@ import static org.junit.Assert.*;
  */
 
 public class SeznamPrikazuTest {
-    private Hra hra;
     private HerniPlan herniPlan;
     private Pokemon pokemon;
     private Pokemoni pokemoni;
@@ -31,7 +30,7 @@ public class SeznamPrikazuTest {
 
     @Before
     public void setUp() {
-        hra = new Hra();
+        Hra hra = new Hra();
         prKonec = new PrikazKonec(hra);
         prJdi = new PrikazJdi(hra.getHerniPlan());
 

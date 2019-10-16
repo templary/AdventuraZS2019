@@ -17,10 +17,7 @@ public class Start extends Application {
         launch(args);
     }
 
-    private Batoh batoh;
-    private Pokemoni pokemoni;
-
-/*    @Override
+    /*    @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("/FXML.fxml"));
@@ -44,8 +41,8 @@ public class Start extends Application {
         Controller controller = loader.getController();
         controller.inicializace(new Hra());
         //controller.setlistOfItemsInRoom();
-        batoh = new Batoh();
-        pokemoni = new Pokemoni();
+        Batoh batoh = new Batoh();
+        Pokemoni pokemoni = new Pokemoni();
 
         stage.show();
 
