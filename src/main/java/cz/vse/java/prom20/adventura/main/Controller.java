@@ -1,23 +1,16 @@
 package cz.vse.java.prom20.adventura.main;
 
 import cz.vse.java.prom20.adventura.logika.*;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -29,13 +22,16 @@ public class Controller implements Initializable {
     Batoh batoh;
     HerniPlan herniPlan;
     Pokemoni pokemoni;
+    Start start;
     Pokemon pokemon;
     ControllerSouboje controllerSouboje;
     KomunikaceControlleru komunikaceControlleru;
-
     private String predavanyPokemon;
 
-
+    public void setStart(Start start, KomunikaceControlleru komunikaceControlleru) {
+        this.start = start;
+        this.komunikaceControlleru = komunikaceControlleru;
+    }
 
     @FXML
     private TextArea text = new TextArea();
@@ -56,17 +52,17 @@ public class Controller implements Initializable {
 
     private IHra hra;
 
-    void inicializace(IHra hra) {
-        this.hra = hra;
-        //batoh = new Batoh();
-        batoh = hra.getBatoh();
-        pokemoni = hra.getPokemoni();
+    void inicializace(IHra iHra) {
+        this.hra = iHra;
+        batoh = iHra.getBatoh();
+        pokemoni = iHra.getPokemoni();
         textVypis.setText(this.hra.vratUvitani());
         setlistOfItemsInRoom();
         setListOfPokemonsInRoom();
         setListOfItemsInBackPack();
         setListOfExits();
     }
+
 
     private void listRefresh() {
         setListOfExits();
@@ -120,11 +116,13 @@ public class Controller implements Initializable {
         listOfPokemonsInRoom.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                // controllerSouboje.setHra(hra);
                 if (event.getClickCount() == 2) {
                     String currentPokemon = listOfPokemonsInRoom.getSelectionModel().getSelectedItem();
-                    // hra.getKomunikaceKontroleru();
+                    //hra.getKomunikaceKontroleru().setPredavanyPokemon(currentPokemon);
                     System.out.println(currentPokemon);
-                    start();
+                    Gui gui = start.getGui();
+                    gui.startSouboje();
 
 /*                    if (pokemoni.getSetChycenychPokemonu().size() < 1) {
                         textVypis.setText(hra.zpracujPrikaz("chytni " + current));
@@ -138,9 +136,9 @@ public class Controller implements Initializable {
         });
     }
 
-    public StringProperty getPredavanyPokemon() {
-        return new SimpleStringProperty(predavanyPokemon);
-    }
+    // public StringProperty getPredavanyPokemon() {
+    //  return new SimpleStringProperty(predavanyPokemon);
+    // }
 
     @FXML
     private void handleButtonBoj(javafx.event.ActionEvent event) {
@@ -149,7 +147,7 @@ public class Controller implements Initializable {
     }
 
 
-    private void start() {
+/*    private void start() {
         Parent root;
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -159,10 +157,11 @@ public class Controller implements Initializable {
             stage.setTitle("Souboje");
             stage.setScene(new Scene(root, 600, 300));
             stage.show();
+            //controllerSouboje.setHra(hra);
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
 
     @FXML
@@ -174,6 +173,7 @@ public class Controller implements Initializable {
         textVypis.setText(odpoved);
         listRefresh();
         System.out.println(batoh.getNazvyVeci());
+        // System.out.println(hra.getKomunikaceKontroleru().getPredavanyPokemon());
 
 
     }

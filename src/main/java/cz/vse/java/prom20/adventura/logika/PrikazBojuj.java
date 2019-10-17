@@ -44,7 +44,7 @@ class PrikazBojuj implements IPrikaz {
     @Override
     public String provedPrikaz(String... parametry) {
 
-        if (herniPlan.getAktualniMistnost().getUrovenHernihoPlanu() == 2){
+        if (herniPlan.getAktualniMistnost().getUrovenHernihoPlanu() == 2) {
             return "v této místnosti s pokémony nemusíš zatím bojovat.\nPoužij - chytni jmeno_pokemona ";
         }
 

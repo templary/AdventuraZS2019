@@ -1,5 +1,8 @@
 package cz.vse.java.prom20.adventura.logika;
 
+import cz.vse.java.prom20.adventura.main.Controller;
+import cz.vse.java.prom20.adventura.main.ControllerSouboje;
+
 /**
  * Třída Hra - třída představující logiku adventury.
  * <p>
@@ -20,14 +23,16 @@ public class Hra implements IHra {
     private Pokemon pokemon;
     private Pokemoni pokemoni;
     private Vec vec;
-    //private KomunikaceControlleru komunikaceControlleru;
+    private Controller controller;
+    private ControllerSouboje controllerSouboje;
+    private KomunikaceControlleru komunikaceControlleru;
 
     /**
      * Vytváří hru a inicializuje místnosti (prostřednictvím třídy HerniPlan) a seznam platných příkazů.
      */
     public Hra() {
         herniPlan = new HerniPlan();
-        //komunikaceControlleru = new KomunikaceControlleru();
+        //komunikaceControlleru = new KomunikaceControlleru(this);
         platnePrikazy = new SeznamPrikazu();
 
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
@@ -145,6 +150,10 @@ public class Hra implements IHra {
         return pokemoni;
     }
 
+    public Hra getHra() {
+        return this;
+    }
+
     /**
      * @return vrací batoh
      */
@@ -152,8 +161,15 @@ public class Hra implements IHra {
         return batoh;
     }
 
-/*    public KomunikaceControlleru getKomunikaceControlleru() {
+    public Controller getController() {
+        return controller;
+    }
+
+    @Override
+    public KomunikaceControlleru getKomunikaceKontroleru() {
         return komunikaceControlleru;
-    }*/
+    }
+
+
 }
 
