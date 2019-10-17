@@ -59,12 +59,9 @@ public interface IHra {
 
     Pokemoni getPokemoni();
 
-    //KomunikaceControlleru getKomunikaceKontroleru(); //TODO getKomunikace
 
     //Controller getController();
 
     Hra getHra();
 
-    //== ZDĚDĚNÉ METODY ========================================================
-    //== INTERNÍ DATOVÉ TYPY ===================================================
 }

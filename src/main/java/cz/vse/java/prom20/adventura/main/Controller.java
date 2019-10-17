@@ -211,7 +211,7 @@ public class Controller implements Initializable {
     @FXML
     private void setlistOfPokemonsInPokeball() {
         //noinspection unchecked
-        listOfPokemonsInPokeball.setItems(listSetter(pokemoni.getNazvyChycenychPokemonu())); //TODO
+        listOfPokemonsInPokeball.setItems(listSetter(pokemoni.getNazvyChycenychPokemonu()));
     }
 
 
