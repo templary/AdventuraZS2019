@@ -3,8 +3,6 @@
 package cz.vse.java.prom20.adventura.logika;
 
 
-import cz.vse.java.prom20.adventura.main.Controller;
-
 /**
  * Rozhraní které musí implementovat hra, je na ně navázáno uživatelské rozhraní
  *
@@ -61,9 +59,9 @@ public interface IHra {
 
     Pokemoni getPokemoni();
 
-    KomunikaceControlleru getKomunikaceKontroleru(); //TODO getKomunikace
+    //KomunikaceControlleru getKomunikaceKontroleru(); //TODO getKomunikace
 
-    Controller getController();
+    //Controller getController();
 
     Hra getHra();
 

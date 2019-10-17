@@ -121,16 +121,17 @@ public class Controller implements Initializable {
                     String currentPokemon = listOfPokemonsInRoom.getSelectionModel().getSelectedItem();
                     //hra.getKomunikaceKontroleru().setPredavanyPokemon(currentPokemon);
                     System.out.println(currentPokemon);
-                    Gui gui = start.getGui();
-                    gui.startSouboje();
-                    gui.getKomunikaceControlleru().setPredavanyPokemon(currentPokemon);
-                    //System.out.println(gui.getKomunikaceControlleru().getPredavanyPokemon());
 
-/*                    if (pokemoni.getSetChycenychPokemonu().size() < 1) {
-                        textVypis.setText(hra.zpracujPrikaz("chytni " + current));
+                    if (pokemoni.getSetChycenychPokemonu().size() < 1 && hra.getHerniPlan().getAktualniMistnost().getUrovenHernihoPlanu() == 2) {
+                        textVypis.setText(hra.zpracujPrikaz("chytni " + currentPokemon));
+
                     } else {
-                        //TODO Preprogramovat PrikazBojuj!
-                    }*/
+                        Gui gui = start.getGui();
+                        gui.startSouboje();
+                        gui.getKomunikaceControlleru().setPredavanyPokemon(currentPokemon);
+                    }
+
+
                     listRefresh();
 
                 }

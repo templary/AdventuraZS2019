@@ -66,6 +66,7 @@ public class Gui {
             stage.show();
             controllerSouboje.setHra(hra);
             controllerSouboje.setKomunikaceControlleru(komunikaceControlleru);
+            //controllerSouboje.refresh();
         } catch (IOException e) {
             e.printStackTrace();
         }

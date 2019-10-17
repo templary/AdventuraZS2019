@@ -85,11 +85,14 @@
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                     <children>
-                        <ComboBox fx:id="vyberPokemona" layoutX="224.0" layoutY="15.0" prefWidth="150.0"/>
+                        <ComboBox fx:id="comboVyberPokemona" layoutX="224.0" layoutY="15.0" onAction="#handleComboBox"
+                                  prefWidth="150.0"/>
                         <Button fx:id="ButtonBoj" layoutX="272.0" layoutY="55.0" mnemonicParsing="false"
                                 onAction="#handleButtonBoj" text="Bojuj"/>
                         <TextArea fx:id="textAreaVysledek" layoutX="145.0" layoutY="101.0" prefHeight="66.0"
                                   prefWidth="308.0"/>
+                        <Button fx:id="buttonTestRefresh" layoutX="501.0" layoutY="55.0" mnemonicParsing="false"
+                                onAction="#handleButtonTestRefresh" text="Button"/>
                     </children>
                 </AnchorPane>
             </items>

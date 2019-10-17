@@ -57,6 +57,7 @@ public class Hra implements IHra {
         platnePrikazy.vlozPrikaz(new PrikazTrenuj(this.batoh, this.pokemoni));
         platnePrikazy.vlozPrikaz(new PrikazInfo(this.herniPlan, this.pokemoni));
         platnePrikazy.vlozPrikaz(new PrikazFinal(this.herniPlan, this.pokemoni, this));
+        platnePrikazy.vlozPrikaz(new PrikazBojujProGUI(this.herniPlan, this.pokemoni, this));
 
 
     }
@@ -161,14 +162,14 @@ public class Hra implements IHra {
         return batoh;
     }
 
-    public Controller getController() {
-        return controller;
-    }
-
-    @Override
-    public KomunikaceControlleru getKomunikaceKontroleru() {
-        return komunikaceControlleru;
-    }
+//    public Controller getController() {
+//        return controller;
+//    }
+//
+//    @Override
+//    public KomunikaceControlleru getKomunikaceKontroleru() {
+//        return komunikaceControlleru;
+//    }
 
 
 }
