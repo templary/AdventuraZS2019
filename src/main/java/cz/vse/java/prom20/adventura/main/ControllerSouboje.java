@@ -15,26 +15,36 @@ public class ControllerSouboje implements Initializable {
 
     KomunikaceControlleru komunikaceControlleru;
     Hra hra;
+
     Controller controller;
     @FXML
     private Text souperTextLVL;
     @FXML
     private Text souperTextJmeno;
 
-
-    public void setSouperStats(String jmeno) {
-        System.out.println(jmeno);
-        souperTextJmeno.setText(jmeno);
-
-    }
-
     public void setHra(Hra hra) {
         this.hra = hra;
     }
 
+    public void setKomunikaceControlleru(KomunikaceControlleru komunikaceControlleru) {
+        this.komunikaceControlleru = komunikaceControlleru;
+    }
+
+    public void setController(Controller controller) {
+        this.controller = controller;
+    }
+
+    public void setSouperStats() {
+        String souper = komunikaceControlleru.getPredavanyPokemon();
+
+        souperTextJmeno.setText(souper);
+
+    }
+
+
     @FXML
     private void handleButtonBoj(javafx.event.ActionEvent event) {
-
+        setSouperStats();
     }
 
 

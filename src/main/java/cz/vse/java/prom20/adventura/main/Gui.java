@@ -46,7 +46,7 @@ public class Gui {
             stage.setScene(new Scene(root, 850, 900));
             Controller controller = loader.getController();
             controller.inicializace(hra);
-            controller.setStart(start, komunikaceControlleru);
+            controller.setStartAndComunication(start, komunikaceControlleru);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -62,8 +62,10 @@ public class Gui {
             Stage stage = new Stage();
             stage.setTitle("Souboje");
             stage.setScene(new Scene(root, 600, 300));
+            ControllerSouboje controllerSouboje = loader.getController();
             stage.show();
-            //controllerSouboje.setHra(hra);
+            controllerSouboje.setHra(hra);
+            controllerSouboje.setKomunikaceControlleru(komunikaceControlleru);
         } catch (IOException e) {
             e.printStackTrace();
         }

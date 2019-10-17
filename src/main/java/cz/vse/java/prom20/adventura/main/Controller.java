@@ -28,7 +28,7 @@ public class Controller implements Initializable {
     KomunikaceControlleru komunikaceControlleru;
     private String predavanyPokemon;
 
-    public void setStart(Start start, KomunikaceControlleru komunikaceControlleru) {
+    public void setStartAndComunication(Start start, KomunikaceControlleru komunikaceControlleru) {
         this.start = start;
         this.komunikaceControlleru = komunikaceControlleru;
     }
@@ -123,6 +123,8 @@ public class Controller implements Initializable {
                     System.out.println(currentPokemon);
                     Gui gui = start.getGui();
                     gui.startSouboje();
+                    gui.getKomunikaceControlleru().setPredavanyPokemon(currentPokemon);
+                    //System.out.println(gui.getKomunikaceControlleru().getPredavanyPokemon());
 
 /*                    if (pokemoni.getSetChycenychPokemonu().size() < 1) {
                         textVypis.setText(hra.zpracujPrikaz("chytni " + current));
