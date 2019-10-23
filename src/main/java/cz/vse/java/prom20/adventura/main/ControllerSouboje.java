@@ -80,9 +80,8 @@ public class ControllerSouboje implements Initializable {
     }
 
     private ObservableList<String> listSetter(Set<String> stringSet) {
-        ObservableList<String> list = FXCollections.observableArrayList(stringSet);
 
-        return list;
+        return FXCollections.observableArrayList(stringSet);
     }
 
     @FXML
@@ -101,16 +100,13 @@ public class ControllerSouboje implements Initializable {
 
     private Pokemon getSouperuvPokemon() {
         String souper = komunikaceControlleru.getPredavanyPokemon();
-        Pokemon pokemonSouper = hra.getHerniPlan().getAktualniMistnost().getPokemonPokudTuJe(souper);
 
-        return pokemonSouper;
+        return hra.getHerniPlan().getAktualniMistnost().getPokemonPokudTuJe(souper);
     }
 
 
     private Pokemon getTvujPokemon() {
-        Pokemon tvujPokemon = hra.getPokemoni().getPokemonPokudTuJe(stringTvujPokemon);
-
-        return tvujPokemon;
+        return hra.getPokemoni().getPokemonPokudTuJe(stringTvujPokemon);
     }
 
     private void setTvojeStats() {
@@ -127,9 +123,11 @@ public class ControllerSouboje implements Initializable {
 
     @FXML
     private void handleButtonBoj(javafx.event.ActionEvent event) {
-        if (!bylUzBoj) {
-            textAreaVysledek.setText(hra.zpracujPrikaz("bojujgui " + getSouperuvPokemon().getJmenoPokemona() + " " + getTvujPokemon().getJmenoPokemona()));
-            bylUzBoj = true;
+        if (!comboVyberPokemona.getSelectionModel().isEmpty()) {
+            if (!bylUzBoj) {
+                textAreaVysledek.setText(hra.zpracujPrikaz("bojujgui " + getSouperuvPokemon().getJmenoPokemona() + " " + getTvujPokemon().getJmenoPokemona()));
+                bylUzBoj = true;
+            }
         }
     }
 
@@ -161,4 +159,3 @@ public class ControllerSouboje implements Initializable {
 
 
 }
-

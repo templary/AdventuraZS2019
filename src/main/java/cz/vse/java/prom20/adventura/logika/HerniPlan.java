@@ -17,11 +17,9 @@ import java.util.Set;
  */
 public class HerniPlan {
 
-    Pokemoni pokemoni;//TODO TEST
-
     private Mistnost aktualniMistnost;
-    public Set<Mistnost> seznamMistnosti;
-    public Set<Pokemon> seznamPokemonu;
+    private Set<Mistnost> seznamMistnosti;
+    private Set<Pokemon> seznamPokemonu;
 
     /**
      * Konstruktor který vytváří jednotlivé prostory a propojuje je pomocí východů.

@@ -11,21 +11,26 @@
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                     <children>
-                        <MenuBar layoutY="1.0" prefHeight="36.0" prefWidth="850.0">
+                        <MenuBar fx:id="menuBarMenu" layoutY="1.0" prefHeight="36.0" prefWidth="850.0">
                             <menus>
-                                <Menu mnemonicParsing="false" text="File">
+                                <Menu mnemonicParsing="false" text="Menu">
                                     <items>
-                                        <MenuItem mnemonicParsing="false" text="Close"/>
+                                        <MenuItem fx:id="menuBarNovaHra" mnemonicParsing="false"
+                                                  onAction="#onActionMenuBarNovaHra" text="Nová hra"/>
+                                        <MenuItem fx:id="menuBarNacist" mnemonicParsing="false"
+                                                  onAction="#onActionMenuBarNacist" text="Načíst"/>
+                                        <MenuItem fx:id="menuBarUlozit" mnemonicParsing="false"
+                                                  onAction="#onActionMenuBarUlozit" text="Uložit"/>
+                                        <MenuItem fx:id="menuBarUkoncit" mnemonicParsing="false"
+                                                  onAction="#onActionMenuBarUkoncit" text="Ukončit"/>
                                     </items>
                                 </Menu>
-                                <Menu mnemonicParsing="false" text="Edit">
+                                <Menu fx:id="menuBarInfo" mnemonicParsing="false" text="Info">
                                     <items>
-                                        <MenuItem mnemonicParsing="false" text="Delete"/>
-                                    </items>
-                                </Menu>
-                                <Menu mnemonicParsing="false" text="Help">
-                                    <items>
-                                        <MenuItem mnemonicParsing="false" text="About"/>
+                                        <MenuItem fx:id="menuBarNapoveda" mnemonicParsing="false"
+                                                  onAction="#onActionMenuBarNapoveda" text="Nápověda"/>
+                                        <MenuItem fx:id="menuBarHerniPlan" mnemonicParsing="false"
+                                                  onAction="#onActionMenuBarHerniPlan" text="Herní plán"/>
                                     </items>
                                 </Menu>
                             </menus>

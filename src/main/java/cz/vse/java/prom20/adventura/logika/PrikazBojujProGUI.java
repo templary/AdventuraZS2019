@@ -25,7 +25,7 @@ class PrikazBojujProGUI implements IPrikaz {
      * @param hra       instance třídy Hra
      * @param pokemoni  instance třídy Pokemoni
      */
-    public PrikazBojujProGUI(HerniPlan herniPlan, Pokemoni pokemoni, Hra hra) {
+    PrikazBojujProGUI(HerniPlan herniPlan, Pokemoni pokemoni, Hra hra) {
         this.herniPlan = herniPlan;
         this.pokemoni = pokemoni;
         this.hra = hra;
@@ -49,6 +49,7 @@ class PrikazBojujProGUI implements IPrikaz {
         if (pokemoni.getSetChycenychPokemonu().isEmpty()) {
             hra.setKonecHry(true);
             return "Zaútočil jsi bez pokémona a to tě stálo život. Prohrál jsi.";
+
         }
 
         String parametr = parametry[0];

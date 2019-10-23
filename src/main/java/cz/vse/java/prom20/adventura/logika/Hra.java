@@ -32,7 +32,6 @@ public class Hra implements IHra {
      */
     public Hra() {
         herniPlan = new HerniPlan();
-        //komunikaceControlleru = new KomunikaceControlleru(this);
         platnePrikazy = new SeznamPrikazu();
 
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
@@ -41,12 +40,6 @@ public class Hra implements IHra {
 
 
         batoh = new Batoh();
-        //TODO ------------------------------ Testovací entity.
-
-        Vec elixirS = new Vec("elixírS", true, "Pomocí tohoto elixíru můžeš trénovat pokémona.(+4 síly.)");
-        batoh.pridejVec(elixirS);
-
-        //TODO ------------------------------
         pokemoni = new Pokemoni();
 
 
@@ -104,7 +97,7 @@ public class Hra implements IHra {
         String slovoPrikazu = slova[0];
         String[] parametry = new String[slova.length - 1];
         System.arraycopy(slova, 1, parametry, 0, parametry.length);
-        String textKVypsani = " .... ";
+        String textKVypsani;
         if (platnePrikazy.jePlatnyPrikaz(slovoPrikazu)) {
             IPrikaz prikaz = platnePrikazy.vratPrikaz(slovoPrikazu);
             textKVypsani = prikaz.provedPrikaz(parametry);

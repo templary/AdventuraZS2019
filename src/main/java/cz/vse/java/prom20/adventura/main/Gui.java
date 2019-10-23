@@ -5,9 +5,12 @@ import cz.vse.java.prom20.adventura.logika.Batoh;
 import cz.vse.java.prom20.adventura.logika.Hra;
 import cz.vse.java.prom20.adventura.logika.KomunikaceControlleru;
 import cz.vse.java.prom20.adventura.logika.Pokemoni;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,18 +27,21 @@ import java.io.IOException;
  */
 
 public class Gui {
-    Hra hra;
-    Start start;
-    Batoh batoh = new Batoh();
-    Pokemoni pokemoni = new Pokemoni();
-    KomunikaceControlleru komunikaceControlleru = new KomunikaceControlleru(hra);
+    private Hra hra;
+    private Start start;
+    private Batoh batoh = new Batoh();
+    private Pokemoni pokemoni = new Pokemoni();
+    private KomunikaceControlleru komunikaceControlleru = new KomunikaceControlleru(hra);
 
-    public Gui(Hra hra, Start start) {
+    @FXML
+    private ImageView imageMapa = new ImageView();
+
+    Gui(Hra hra, Start start) {
         this.hra = hra;
         this.start = start;
     }
 
-    public void startMain() {
+    void startMain() {
         Parent root;
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -46,14 +52,14 @@ public class Gui {
             stage.setScene(new Scene(root, 850, 900));
             Controller controller = loader.getController();
             controller.inicializace(hra);
-            controller.setStartAndComunication(start, komunikaceControlleru);
+            controller.setStartAndComunication(start, komunikaceControlleru, this);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void startSouboje() {
+    void startSouboje() {
         Parent root;
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -66,6 +72,25 @@ public class Gui {
             stage.show();
             controllerSouboje.setHra(hra);
             controllerSouboje.setKomunikaceControlleru(komunikaceControlleru);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void starMapa() {
+        Parent root;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/mapa.fxml"));
+            root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Mapa");
+            stage.setScene(new Scene(root, 600, 300));
+            Controller controller = loader.getController();
+            stage.show();
+            Image image = new Image("file:mapa.png");
+            imageMapa.setImage(image);
+            imageMapa.setCache(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -88,7 +113,7 @@ public class Gui {
         return start;
     }
 
-    public KomunikaceControlleru getKomunikaceControlleru() {
+    KomunikaceControlleru getKomunikaceControlleru() {
         return komunikaceControlleru;
     }
 }

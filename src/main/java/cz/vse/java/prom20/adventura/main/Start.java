@@ -8,10 +8,11 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 
-
 public class Start extends Application {
-    Gui gui = new Gui(new Hra(), this);
+
+    private Gui gui = new Gui(new Hra(), this);
     KomunikaceControlleru komunikaceControlleru = new KomunikaceControlleru(gui.getHra());
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -22,11 +23,7 @@ public class Start extends Application {
         // gui.startSouboje();
     }
 
-    public Gui getGui() {
+    Gui getGui() {
         return gui;
     }
-
-    //public KomunikaceControlleru getKomunikaceControlleru() {
-    //    return komunikaceControlleru;
-    //}
 }
