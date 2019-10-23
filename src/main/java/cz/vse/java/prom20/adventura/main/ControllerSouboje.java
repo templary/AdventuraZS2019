@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -20,12 +21,18 @@ import java.util.Set;
 
 public class ControllerSouboje implements Initializable {
 
-    @FXML
-    ComboBox<String> comboVyberPokemona;
+
     private KomunikaceControlleru komunikaceControlleru;
     private Hra hra;
+    private int counter = 0;
+    private boolean bylUzBoj = false;
 
-    Controller controller;
+
+    @FXML
+    private AnchorPane anchorPaneSouboje;
+    @FXML
+    private ComboBox<String> comboVyberPokemona;
+    private Controller controller;
     @FXML
     private Text souperTextLVL;
     @FXML
@@ -47,20 +54,21 @@ public class ControllerSouboje implements Initializable {
     private TextArea textAreaVysledek;
 
 
-
     public void setHra(Hra hra) {
         this.hra = hra;
     }
 
-    public void setKomunikaceControlleru(KomunikaceControlleru komunikaceControlleru) {
+    void setKomunikaceControlleru(KomunikaceControlleru komunikaceControlleru) {
         this.komunikaceControlleru = komunikaceControlleru;
     }
+
 
     public void setController(Controller controller) {
         this.controller = controller;
     }
 
-    public void setSouperStats() {
+
+    private void setSouperStats() {
 
         souperTextJmeno.setText(getSouperuvPokemon().getJmenoPokemona());
         String souperLVL = Integer.toString(getSouperuvPokemon().getLevel());
@@ -79,7 +87,7 @@ public class ControllerSouboje implements Initializable {
 
     @FXML
     private void comboVyberPokemona() {
-        if (hra.getPokemoni().getSetChycenychPokemonu() != null) {
+        if (hra.getPokemoni().getSetChycenychPokemonu() != null && counter == 0) {
             comboVyberPokemona.setItems(listSetter(hra.getPokemoni().getNazvyChycenychPokemonu()));
         }
     }
@@ -98,6 +106,7 @@ public class ControllerSouboje implements Initializable {
         return pokemonSouper;
     }
 
+
     private Pokemon getTvujPokemon() {
         Pokemon tvujPokemon = hra.getPokemoni().getPokemonPokudTuJe(stringTvujPokemon);
 
@@ -115,25 +124,41 @@ public class ControllerSouboje implements Initializable {
         tvujTextSila.setText(tvujSila);
     }
 
-    @FXML
-    private void handleButtonTestRefresh(javafx.event.ActionEvent event) {
-        refresh();
-    }
 
     @FXML
     private void handleButtonBoj(javafx.event.ActionEvent event) {
-        textAreaVysledek.setText(hra.zpracujPrikaz("bojujgui " + getSouperuvPokemon().getJmenoPokemona() + " " + getTvujPokemon().getJmenoPokemona()));
+        if (!bylUzBoj) {
+            textAreaVysledek.setText(hra.zpracujPrikaz("bojujgui " + getSouperuvPokemon().getJmenoPokemona() + " " + getTvujPokemon().getJmenoPokemona()));
+            bylUzBoj = true;
+        }
     }
 
-    public void refresh() {
+
+    private void refresh() {
         setSouperStats();
         comboVyberPokemona();
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+    /**
+     * Metoda na refresh předaných informací z hlavního kontroleru
+     * //TODO jak udělat refresh druhého okna po spuštění chytřeji?
+     */
+    @FXML
+    private void onMouseEnteredSouboje() {
+        anchorPaneSouboje.setOnMouseEntered(event -> {
+            System.out.println("test");
+            if (counter == 0) {
+                refresh();
+                counter++;
+            }
+        });
+    }
+
+
 }
 

@@ -11,7 +11,7 @@ import cz.vse.java.prom20.adventura.main.ControllerSouboje;
  * Vypisuje uvítací a ukončovací text hry.
  * Také vyhodnocuje jednotlivé příkazy zadané uživatelem.
  *
- * @author Jarmila Pavlickova, Miroslav Prokop
+ * @author Miroslav Prokop
  * @version 1.0
  */
 
@@ -76,6 +76,10 @@ public class Hra implements IHra {
     /**
      * Vrátí závěrečnou zprávu pro hráče.
      */
+    public String vratUtokBezPokemona() {
+        return "Zaútočil jsi bez pokémona a to tě stálo život. Prohrál jsi.";
+    }
+
     public String vratEpilog() {
         return "Díky, že jste si zahráli. Ahoj.";
     }

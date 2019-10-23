@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
  * Testovací třída HraTest slouží ke komplexnímu otestování
  * třídy Hra
  *
- * @author Jarmila Pavlíčková, Miroslav Prokop
+ * @author Miroslav Prokop
  * @version 1.0
  */
 public class HraTest {

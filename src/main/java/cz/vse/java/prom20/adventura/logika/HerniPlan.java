@@ -12,7 +12,7 @@ import java.util.Set;
  * propojuje je vzájemně pomocí východů
  * a pamatuje si aktuální prostor, ve kterém se hráč právě nachází.
  *
- * @author  Jarmila Pavlickova, Miroslav Prokop
+ * @author Miroslav Prokop
  * @version 1.0
  */
 public class HerniPlan {

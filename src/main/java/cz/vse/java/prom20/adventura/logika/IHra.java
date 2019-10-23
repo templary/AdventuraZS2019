@@ -6,7 +6,7 @@ package cz.vse.java.prom20.adventura.logika;
 /**
  * Rozhraní které musí implementovat hra, je na ně navázáno uživatelské rozhraní
  *
- * @author Jarmila Pavlickova, Miroslav Prokop
+ * @author Miroslav Prokop
  * @version 1.0
  */
 public interface IHra {
@@ -26,6 +26,8 @@ public interface IHra {
      * @return vrací se řetězec, který se má vypsat na obrazovku
      */
     String vratEpilog();
+
+    String vratUtokBezPokemona();
 
     /**
      * Vrací informaci o tom, zda hra již skončila, je jedno zda výhrou, prohrou nebo příkazem konec.

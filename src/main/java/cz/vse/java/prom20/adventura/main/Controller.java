@@ -116,24 +116,27 @@ public class Controller implements Initializable {
         listOfPokemonsInRoom.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                // controllerSouboje.setHra(hra);
                 if (event.getClickCount() == 2) {
                     String currentPokemon = listOfPokemonsInRoom.getSelectionModel().getSelectedItem();
-                    //hra.getKomunikaceKontroleru().setPredavanyPokemon(currentPokemon);
                     System.out.println(currentPokemon);
 
-                    if (pokemoni.getSetChycenychPokemonu().size() < 1 && hra.getHerniPlan().getAktualniMistnost().getUrovenHernihoPlanu() == 2) {
-                        textVypis.setText(hra.zpracujPrikaz("chytni " + currentPokemon));
 
+                    if (hra.getHerniPlan().getAktualniMistnost().getUrovenHernihoPlanu() > 2 && pokemoni.getSetChycenychPokemonu().size() == 0) {
+                        hra.konecHry();
+                        textVypis.setText(hra.vratUtokBezPokemona());
                     } else {
-                        Gui gui = start.getGui();
-                        gui.startSouboje();
-                        gui.getKomunikaceControlleru().setPredavanyPokemon(currentPokemon);
+                        if (pokemoni.getSetChycenychPokemonu().size() < 1 || hra.getHerniPlan().getAktualniMistnost().getUrovenHernihoPlanu() == 2) {
+                            textVypis.setText(hra.zpracujPrikaz("chytni " + currentPokemon));
+                        } else {
+                            Pokemon p = herniPlan.getAktualniMistnost().getPokemonPokudTuJe(currentPokemon);
+                            hra.getHerniPlan().getAktualniMistnost().getSetPokemonu().remove(p);
+                            listRefresh();
+                            Gui gui = start.getGui();
+                            gui.startSouboje();
+                            gui.getKomunikaceControlleru().setPredavanyPokemon(currentPokemon);
+                        }
                     }
-
-
                     listRefresh();
-
                 }
             }
         });

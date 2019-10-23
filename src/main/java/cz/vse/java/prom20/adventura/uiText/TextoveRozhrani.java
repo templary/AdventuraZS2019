@@ -1,8 +1,9 @@
 package cz.vse.java.prom20.adventura.uiText;
 
 
-import java.util.Scanner;
 import cz.vse.java.prom20.adventura.logika.IHra;
+
+import java.util.Scanner;
 /**
  *  trída  TextoveRozhrani
  * 
@@ -12,7 +13,7 @@ import cz.vse.java.prom20.adventura.logika.IHra;
  *  
  *  
  *
- *@author     Jarmila Pavlickova, Miroslav Prokop
+ *@author Miroslav Prokop
  *@version    1.0
  */
 
