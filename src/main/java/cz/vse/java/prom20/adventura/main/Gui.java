@@ -85,7 +85,7 @@ public class Gui {
             root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Mapa");
-            stage.setScene(new Scene(root, 600, 300));
+            stage.setScene(new Scene(root, 740, 432));
             Controller controller = loader.getController();
             stage.show();
             Image image = new Image("file:mapa.png");

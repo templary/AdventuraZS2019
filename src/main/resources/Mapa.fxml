@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="432.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/8"
             fx:controller="cz.vse.java.prom20.adventura.main.Controller">
     <children>
-        <ImageView fx:id="imageMapa" fitHeight="279.0" fitWidth="524.0" layoutX="38.0" layoutY="51.0"
-                   pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="38.0"
-                   AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="51.0"/>
+        <ImageView fx:id="imageMapa" fitHeight="304.0" fitWidth="710.0" layoutX="8.0" layoutY="90.0" pickOnBounds="true"
+                   preserveRatio="true" AnchorPane.bottomAnchor="38.427581787109375" AnchorPane.leftAnchor="8.0"
+                   AnchorPane.rightAnchor="7.0">
+            <image>
+                <Image url="@mapa.jpg"/>
+            </image>
+        </ImageView>
+        <Text layoutX="246.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAPA HRY"
+              wrappingWidth="239.0">
+            <font>
+                <Font size="49.0"/>
+            </font>
+        </Text>
     </children>
 </AnchorPane>

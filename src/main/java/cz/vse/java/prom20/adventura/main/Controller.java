@@ -29,6 +29,7 @@ public class Controller implements Initializable {
     private KomunikaceControlleru komunikaceControlleru;
     private String predavanyPokemon;
     private Gui gui;
+    private UkladaniHry ukladaniHry;
     @FXML
     private Text textLokace;
 
@@ -213,7 +214,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void onActionMenuBarUlozit(ActionEvent actionEvent) {
-        //TODO metoda na ukládání stavu hry do .txt
+
     }
 
     @FXML
@@ -235,6 +236,6 @@ public class Controller implements Initializable {
     @FXML
     private void onActionMenuBarHerniPlan(ActionEvent actionEvent) {
         gui.starMapa();
-        //TODO Mapa se nezobrazuje
+        //TODO Mapa není vycentrovaná
     }
 }
