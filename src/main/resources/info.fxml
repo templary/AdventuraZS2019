@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="168.0" prefWidth="310.0" xmlns="http://javafx.com/javafx/8">
+    <children>
+        <Text fx:id="textInfoWindow" layoutX="56.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              style="-fx-text-alignment: center;" text="Text" wrappingWidth="198.68408203125">
+            <font>
+                <Font size="17.0"/>
+            </font>
+        </Text>
+        <Text layoutX="56.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;"
+              text="Díky za hru. :)" wrappingWidth="198.68408203125">
+            <font>
+                <Font size="17.0"/>
+            </font>
+        </Text>
+        <Button fx:id="buttonInfoWindowNovaHra" layoutX="172.0" layoutY="111.0" mnemonicParsing="false"
+                onAction="#handleButtonInfoWindowNovaHra" prefHeight="27.0" prefWidth="83.0" text="NOVÁ HRA"/>
+        <Button fx:id="buttonInfoWindowKonec" layoutX="56.0" layoutY="111.0" mnemonicParsing="false"
+                onAction="#handleButtonInfoWindowKonec" prefHeight="27.0" prefWidth="83.0" text="KONEC"/>
+    </children>
+</AnchorPane>

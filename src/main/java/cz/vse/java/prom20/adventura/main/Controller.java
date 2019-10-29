@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -32,7 +33,8 @@ public class Controller implements Initializable {
     private UkladaniHry ukladaniHry;
     @FXML
     private Text textLokace;
-
+    @FXML
+    private MenuItem menuBarNovaHra;
     @FXML
     private TextArea text = new TextArea();
     @FXML
@@ -65,7 +67,14 @@ public class Controller implements Initializable {
         batoh = iHra.getBatoh();
         pokemoni = iHra.getPokemoni();
         textVypis.setText(this.hra.vratUvitani());
+        //TODO testovací pokemon
+        Pokemon pokemon = new Pokemon("test", 1, 11111, 111);
+        pokemoni.chytPokemona(pokemon);
         refresh();
+    }
+
+    public void predejController() {
+        komunikaceControlleru.setController(this);
     }
 
 
@@ -153,7 +162,6 @@ public class Controller implements Initializable {
         textVypis.setText(odpoved);
         refresh();
         System.out.println(batoh.getNazvyVeci());
-        // System.out.println(hra.getKomunikaceKontroleru().getPredavanyPokemon());
 
 
     }
@@ -162,6 +170,13 @@ public class Controller implements Initializable {
     private ObservableList<String> listSetter(Set<String> stringSet) {
 
         return FXCollections.observableArrayList(stringSet);
+    }
+
+    public void listCleaner() {
+        listOfItemsInRoom.getItems().clear();
+        listOfItemsInBackPack.getItems().clear();
+        listOfPokemonsInPokeball.getItems().clear();
+        listOfPokemonsInRoom.getItems().clear();
     }
 
     @FXML
@@ -203,8 +218,11 @@ public class Controller implements Initializable {
 
     @FXML
     private void onActionMenuBarNovaHra(ActionEvent actionEvent) {
-        hra.konecHry();
-        //TODO Nová hra
+        //TODO zavřít staré okno.
+        listCleaner();
+        gui.startMain();
+
+        refresh();
     }
 
     @FXML
@@ -236,6 +254,5 @@ public class Controller implements Initializable {
     @FXML
     private void onActionMenuBarHerniPlan(ActionEvent actionEvent) {
         gui.starMapa();
-        //TODO Mapa není vycentrovaná
     }
 }

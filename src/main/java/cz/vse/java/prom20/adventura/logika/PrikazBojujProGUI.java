@@ -1,6 +1,4 @@
 package cz.vse.java.prom20.adventura.logika;
-
-
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -16,7 +14,6 @@ class PrikazBojujProGUI implements IPrikaz {
     private HerniPlan herniPlan;
     private Pokemoni pokemoni;
     private Hra hra;
-
 
     /**
      * Konstruktor třídy
@@ -63,9 +60,8 @@ class PrikazBojujProGUI implements IPrikaz {
             if (herniPlan.getAktualniMistnost().getUrovenHernihoPlanu() == 2) {
                 return "Tady bojovat nemusíš, pouzij příkaz chytni jmeno_pokemona";
             } else {
-                if (herniPlan.getAktualniMistnost().getSeznamPokemonuJakoText() != null) {
-
-                }
+/*                if (herniPlan.getAktualniMistnost().getSeznamPokemonuJakoText() != null) {
+                }*/
             }
         }
         Pokemon souper = herniPlan.getAktualniMistnost().getPokemonPokudTuJe(parametr);
@@ -93,13 +89,21 @@ class PrikazBojujProGUI implements IPrikaz {
             if (souperStats < pokemonHraceStats || souperStats == pokemonHraceStats) {
                 herniPlan.getAktualniMistnost().odeberPokemona(souper);
                 pokemoni.chytPokemona(souper);
-                return "Tvůj pokémon " + pokemonHrace.getJmenoPokemona() + " Vyhrál.\nNyní je " + souper.getJmenoPokemona() + " tvůj.";
+                if (souper.getJmenoPokemona().equals("Piplup")) {
+                    return "Gratuluji, porazil jsi Piplup, vyhrál jsi!";
+                } else {
+                    return "Tvůj pokémon " + pokemonHrace.getJmenoPokemona() + " Vyhrál.\nNyní je " + souper.getJmenoPokemona() + " tvůj.";
+                }
             } else {
                 System.out.println("Bohuže jsi prohrál, máš ještě " + pokusy + " pokusy než ti pokémon uteče.");
                 pokusy--;
                 if (pokusy == 0) {
-                    herniPlan.getAktualniMistnost().odeberPokemona(souper);
-                    return "Pokémon " + souper.getJmenoPokemona() + " ti bohužel utekl.";
+                    if (souper.getJmenoPokemona().equals("Piplup")) {
+                        return "Bohuže tě Piplup usmrtil.";
+                    } else {
+                        herniPlan.getAktualniMistnost().odeberPokemona(souper);
+                        return "Pokémon " + souper.getJmenoPokemona() + " ti bohužel utekl.";
+                    }
                 }
             }
         }

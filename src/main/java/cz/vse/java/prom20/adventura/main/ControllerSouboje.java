@@ -28,6 +28,7 @@ public class ControllerSouboje implements Initializable {
     private boolean bylUzBoj = false;
 
 
+
     @FXML
     private AnchorPane anchorPaneSouboje;
     @FXML
@@ -60,6 +61,10 @@ public class ControllerSouboje implements Initializable {
 
     void setKomunikaceControlleru(KomunikaceControlleru komunikaceControlleru) {
         this.komunikaceControlleru = komunikaceControlleru;
+    }
+
+    void predejControllerSouboje() {
+        komunikaceControlleru.setControllerSouboje(this);
     }
 
 
@@ -120,7 +125,11 @@ public class ControllerSouboje implements Initializable {
     private void handleButtonBoj(javafx.event.ActionEvent event) {
         if (!comboVyberPokemona.getSelectionModel().isEmpty()) {
             if (!bylUzBoj) {
-                textAreaVysledek.setText(hra.zpracujPrikaz("bojujgui " + getSouperuvPokemon().getJmenoPokemona() + " " + getTvujPokemon().getJmenoPokemona()));
+                String vysledekSouboje = hra.zpracujPrikaz("bojujgui " + getSouperuvPokemon().getJmenoPokemona() + " " + getTvujPokemon().getJmenoPokemona());
+                if (vysledekSouboje.contains("Piplup")) {
+                }
+
+                //textAreaVysledek.setText();
                 bylUzBoj = true;
             }
         }

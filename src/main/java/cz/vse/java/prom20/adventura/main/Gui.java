@@ -27,10 +27,12 @@ import java.io.IOException;
  */
 
 public class Gui {
+    private boolean isInGame = false;
     private Hra hra;
     private Start start;
     private Batoh batoh = new Batoh();
     private Pokemoni pokemoni = new Pokemoni();
+    private Controller controller;
     private KomunikaceControlleru komunikaceControlleru = new KomunikaceControlleru(hra);
 
     @FXML
@@ -51,13 +53,17 @@ public class Gui {
             stage.setTitle("Souboje");
             stage.setScene(new Scene(root, 850, 900));
             Controller controller = loader.getController();
+            this.controller = controller;
             controller.inicializace(hra);
             controller.setStartAndComunication(start, komunikaceControlleru, this);
             stage.show();
+            isInGame = true;
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
+
 
     void startSouboje() {
         Parent root;
@@ -111,6 +117,22 @@ public class Gui {
             Image image = new Image("file:pokemoni.png");
             imageMapa.setImage(image);
             imageMapa.setCache(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void starInfoWindow() {
+        Parent root;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/info.fxml"));
+            root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Tabulka pokémonů");
+            stage.setScene(new Scene(root, 623, 583));
+            Controller controller = loader.getController();
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

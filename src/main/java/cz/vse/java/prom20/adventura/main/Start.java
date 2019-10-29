@@ -20,7 +20,6 @@ public class Start extends Application {
             IHra hra = new Hra();
             TextoveRozhrani textoveRozhrani = new TextoveRozhrani(hra);
             textoveRozhrani.hraj();
-            //TODO zaznamenat do TODO listu
         }
         launch(args);
     }
@@ -28,7 +27,6 @@ public class Start extends Application {
     @Override
     public void start(Stage primaryStage) {
         gui.startMain();
-        // gui.startSouboje();
     }
 
     Gui getGui() {
