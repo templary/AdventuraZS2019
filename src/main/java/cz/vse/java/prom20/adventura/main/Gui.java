@@ -86,10 +86,29 @@ public class Gui {
             root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Mapa");
-            stage.setScene(new Scene(root, 740, 432));
+            stage.setScene(new Scene(root, 678, 432));
             Controller controller = loader.getController();
             stage.show();
             Image image = new Image("file:mapa.png");
+            imageMapa.setImage(image);
+            imageMapa.setCache(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void starNapovedaPokemoni() {
+        Parent root;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/napovedaPokemoni.fxml"));
+            root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Tabulka pokémonů");
+            stage.setScene(new Scene(root, 623, 583));
+            Controller controller = loader.getController();
+            stage.show();
+            Image image = new Image("file:pokemoni.png");
             imageMapa.setImage(image);
             imageMapa.setCache(true);
         } catch (IOException e) {

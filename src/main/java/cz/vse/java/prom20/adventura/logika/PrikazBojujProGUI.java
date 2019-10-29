@@ -64,9 +64,6 @@ class PrikazBojujProGUI implements IPrikaz {
                 return "Tady bojovat nemusíš, pouzij příkaz chytni jmeno_pokemona";
             } else {
                 if (herniPlan.getAktualniMistnost().getSeznamPokemonuJakoText() != null) {
-                    // System.out.println(getAsciiDragon());
-                    // System.out.println("Vyber svého bojovníka!\n " + pokemoni.getSeznamChycenychPokemonuJakoText());
-                    //Scanner scanner = new Scanner(System.in);
 
                 }
             }
@@ -80,8 +77,6 @@ class PrikazBojujProGUI implements IPrikaz {
         System.out.println("--------");
 
         int pokusy = 3;
-        //Scanner sc = new Scanner(System.in);
-        //String ovladac = "";
 
         while (pokusy > 0) {
 

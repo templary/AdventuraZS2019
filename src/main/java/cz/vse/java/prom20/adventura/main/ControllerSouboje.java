@@ -63,11 +63,6 @@ public class ControllerSouboje implements Initializable {
     }
 
 
-    public void setController(Controller controller) {
-        this.controller = controller;
-    }
-
-
     private void setSouperStats() {
 
         souperTextJmeno.setText(getSouperuvPokemon().getJmenoPokemona());
@@ -131,10 +126,13 @@ public class ControllerSouboje implements Initializable {
         }
     }
 
-
     void refresh() {
         setSouperStats();
         comboVyberPokemona();
+    }
+
+    public void setToKomunikaceBylUzBoj() {
+        komunikaceControlleru.setUzBojProbehl(bylUzBoj);
     }
 
     @Override

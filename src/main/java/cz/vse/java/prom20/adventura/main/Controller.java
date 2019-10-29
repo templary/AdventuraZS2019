@@ -65,11 +65,11 @@ public class Controller implements Initializable {
         batoh = iHra.getBatoh();
         pokemoni = iHra.getPokemoni();
         textVypis.setText(this.hra.vratUvitani());
-        listRefresh();
+        refresh();
     }
 
 
-    private void listRefresh() {
+    public void refresh() {
         setListOfExits();
         setListOfPokemonsInRoom();
         setlistOfItemsInRoom();
@@ -93,7 +93,7 @@ public class Controller implements Initializable {
                 String curentItem = listOfExits.getSelectionModel().getSelectedItem();
                 System.out.println(curentItem);
                 textVypis.setText(hra.zpracujPrikaz("jdi " + curentItem));
-                listRefresh();
+                refresh();
             }
         });
     }
@@ -105,7 +105,7 @@ public class Controller implements Initializable {
                 String currentItem = listOfItemsInRoom.getSelectionModel().getSelectedItem();
                 System.out.println(currentItem);
                 textVypis.setText(hra.zpracujPrikaz("batoh seber " + currentItem));
-                listRefresh();
+                refresh();
 
             }
         });
@@ -126,14 +126,13 @@ public class Controller implements Initializable {
                     if (pokemoni.getSetChycenychPokemonu().size() < 1 || hra.getHerniPlan().getAktualniMistnost().getUrovenHernihoPlanu() == 2) {
                         textVypis.setText(hra.zpracujPrikaz("chytni " + currentPokemon));
                     } else {
-                        listRefresh();
+                        refresh();
                         Gui gui = start.getGui();
                         gui.getKomunikaceControlleru().setPredavanyPokemon(currentPokemon);
                         gui.startSouboje();
-
                     }
                 }
-                listRefresh();
+                refresh();
             }
         });
     }
@@ -152,7 +151,7 @@ public class Controller implements Initializable {
 
         String odpoved = hra.zpracujPrikaz(terminal.getText());
         textVypis.setText(odpoved);
-        listRefresh();
+        refresh();
         System.out.println(batoh.getNazvyVeci());
         // System.out.println(hra.getKomunikaceKontroleru().getPredavanyPokemon());
 
@@ -231,7 +230,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void onActionMenuBarNapoveda(ActionEvent actionEvent) {
-        //TODO Je nápověda potřeba?
+        gui.starNapovedaPokemoni();
     }
 
     @FXML
