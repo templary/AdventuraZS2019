@@ -78,6 +78,7 @@ public class Gui {
             stage.show();
             controllerSouboje.setHra(hra);
             controllerSouboje.setKomunikaceControlleru(komunikaceControlleru);
+            controllerSouboje.setStartAndGUI(start, this);
             controllerSouboje.refresh();
         } catch (IOException e) {
             e.printStackTrace();
@@ -131,7 +132,7 @@ public class Gui {
             Stage stage = new Stage();
             stage.setTitle("Tabulka pokémonů");
             stage.setScene(new Scene(root, 623, 583));
-            Controller controller = loader.getController();
+            ControllerSouboje controllerSouboje = loader.getController();
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

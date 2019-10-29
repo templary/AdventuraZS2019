@@ -1,6 +1,7 @@
 package cz.vse.java.prom20.adventura.main;
 
 
+import cz.vse.java.prom20.adventura.logika.CasovanyKonecHry;
 import cz.vse.java.prom20.adventura.logika.Hra;
 import cz.vse.java.prom20.adventura.logika.KomunikaceControlleru;
 import cz.vse.java.prom20.adventura.logika.Pokemon;
@@ -24,6 +25,8 @@ public class ControllerSouboje implements Initializable {
 
     private KomunikaceControlleru komunikaceControlleru;
     private Hra hra;
+    private Start start;
+    private Gui gui;
     private int counter = 0;
     private boolean bylUzBoj = false;
 
@@ -61,6 +64,11 @@ public class ControllerSouboje implements Initializable {
 
     void setKomunikaceControlleru(KomunikaceControlleru komunikaceControlleru) {
         this.komunikaceControlleru = komunikaceControlleru;
+    }
+
+    void setStartAndGUI(Start start, Gui gui) {
+        this.start = start;
+        this.gui = gui;
     }
 
     void predejControllerSouboje() {
@@ -127,10 +135,10 @@ public class ControllerSouboje implements Initializable {
             if (!bylUzBoj) {
                 String vysledekSouboje = hra.zpracujPrikaz("bojujgui " + getSouperuvPokemon().getJmenoPokemona() + " " + getTvujPokemon().getJmenoPokemona());
                 if (vysledekSouboje.contains("Piplup")) {
+                    gui.starInfoWindow();
+                } else {
+                    textAreaVysledek.setText(vysledekSouboje);
                 }
-
-                //textAreaVysledek.setText();
-                bylUzBoj = true;
             }
         }
     }
@@ -147,6 +155,18 @@ public class ControllerSouboje implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void handleButtonInfoWindowNovaHra(ActionEvent actionEvent) {
+        System.out.println("Nová hra");
+        //TODO nová hra
+    }
+
+    public void handleButtonInfoWindowKonec(ActionEvent actionEvent) {
+        System.out.println("Konec");
+        CasovanyKonecHry casovanyKonecHry = new CasovanyKonecHry();
+        casovanyKonecHry.exitTimer();
+        //TODO vypsat že se hra ukonči
     }
 
 /*    @FXML
