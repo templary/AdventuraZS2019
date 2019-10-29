@@ -128,8 +128,9 @@ public class Controller implements Initializable {
                     } else {
                         listRefresh();
                         Gui gui = start.getGui();
-                        gui.startSouboje();
                         gui.getKomunikaceControlleru().setPredavanyPokemon(currentPokemon);
+                        gui.startSouboje();
+
                     }
                 }
                 listRefresh();

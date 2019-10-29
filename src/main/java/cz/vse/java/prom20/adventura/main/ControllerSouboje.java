@@ -132,7 +132,7 @@ public class ControllerSouboje implements Initializable {
     }
 
 
-    private void refresh() {
+    void refresh() {
         setSouperStats();
         comboVyberPokemona();
     }
@@ -142,11 +142,7 @@ public class ControllerSouboje implements Initializable {
 
     }
 
-    /**
-     * Metoda na refresh předaných informací z hlavního kontroleru
-     * //TODO jak udělat refresh druhého okna po spuštění chytřeji?
-     */
-    @FXML
+/*    @FXML
     private void onMouseEnteredSouboje() {
         anchorPaneSouboje.setOnMouseEntered(event -> {
             System.out.println("test");
@@ -155,7 +151,7 @@ public class ControllerSouboje implements Initializable {
                 counter++;
             }
         });
-    }
+    }*/
 
 
 }
