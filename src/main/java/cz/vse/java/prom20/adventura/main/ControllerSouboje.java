@@ -10,9 +10,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -24,6 +24,7 @@ public class ControllerSouboje implements Initializable {
 
 
     private KomunikaceControlleru komunikaceControlleru;
+    private Controller controller;
     private Hra hra;
     private Start start;
     private Gui gui;
@@ -31,12 +32,8 @@ public class ControllerSouboje implements Initializable {
     private boolean bylUzBoj = false;
 
 
-
-    @FXML
-    private AnchorPane anchorPaneSouboje;
     @FXML
     private ComboBox<String> comboVyberPokemona;
-    private Controller controller;
     @FXML
     private Text souperTextLVL;
     @FXML
@@ -56,6 +53,8 @@ public class ControllerSouboje implements Initializable {
     private Text tvujTextSila;
     @FXML
     private TextArea textAreaVysledek;
+    @FXML
+    private Button buttonBoj;
 
 
     public void setHra(Hra hra) {
@@ -71,9 +70,7 @@ public class ControllerSouboje implements Initializable {
         this.gui = gui;
     }
 
-    void predejControllerSouboje() {
-        komunikaceControlleru.setControllerSouboje(this);
-    }
+    private int clickCounter = 0;
 
 
     private void setSouperStats() {
@@ -128,20 +125,33 @@ public class ControllerSouboje implements Initializable {
         tvujTextSila.setText(tvujSila);
     }
 
+    public void setController(Controller controller) {
+        this.controller = controller;
+    }
 
     @FXML
     private void handleButtonBoj(javafx.event.ActionEvent event) {
+
         if (!comboVyberPokemona.getSelectionModel().isEmpty()) {
-            if (!bylUzBoj) {
+            if (!bylUzBoj && clickCounter != 1) {
                 String vysledekSouboje = hra.zpracujPrikaz("bojujgui " + getSouperuvPokemon().getJmenoPokemona() + " " + getTvujPokemon().getJmenoPokemona());
                 if (vysledekSouboje.contains("Piplup")) {
-                    gui.starInfoWindow();
+                    textAreaVysledek.setText(vysledekSouboje);
+                    buttonBoj.setText("Konec");
+                    clickCounter++;
+                    if (clickCounter == 1) {
+                        CasovanyKonecHry casovanyKonecHry = new CasovanyKonecHry();
+                        casovanyKonecHry.exitTimer();
+                    }
+
                 } else {
                     textAreaVysledek.setText(vysledekSouboje);
                 }
             }
+            controller.refresh();
         }
     }
+
 
     void refresh() {
         setSouperStats();
@@ -157,28 +167,13 @@ public class ControllerSouboje implements Initializable {
 
     }
 
-    public void handleButtonInfoWindowNovaHra(ActionEvent actionEvent) {
-        System.out.println("Nová hra");
-        //TODO nová hra
-    }
-
     public void handleButtonInfoWindowKonec(ActionEvent actionEvent) {
-        System.out.println("Konec");
+        //System.out.println("Konec");
+
         CasovanyKonecHry casovanyKonecHry = new CasovanyKonecHry();
         casovanyKonecHry.exitTimer();
         //TODO vypsat že se hra ukonči
     }
-
-/*    @FXML
-    private void onMouseEnteredSouboje() {
-        anchorPaneSouboje.setOnMouseEntered(event -> {
-            System.out.println("test");
-            if (counter == 0) {
-                refresh();
-                counter++;
-            }
-        });
-    }*/
 
 
 }

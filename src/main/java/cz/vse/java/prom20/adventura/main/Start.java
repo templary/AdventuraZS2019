@@ -12,10 +12,12 @@ import javafx.stage.Stage;
 
 public class Start extends Application {
 
+
     private Gui gui = new Gui(new Hra(), this);
     KomunikaceControlleru komunikaceControlleru = new KomunikaceControlleru(gui.getHra());
 
     public static void main(String[] args) {
+        boolean firstGame = true;
         if (args.length > 0 && args[0].equals("text")) {
             IHra hra = new Hra();
             TextoveRozhrani textoveRozhrani = new TextoveRozhrani(hra);
@@ -32,4 +34,6 @@ public class Start extends Application {
     Gui getGui() {
         return gui;
     }
+
+
 }

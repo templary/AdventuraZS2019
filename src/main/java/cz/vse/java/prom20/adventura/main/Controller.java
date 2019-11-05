@@ -31,6 +31,8 @@ public class Controller implements Initializable {
     private String predavanyPokemon;
     private Gui gui;
     private UkladaniHry ukladaniHry;
+
+
     @FXML
     private Text textLokace;
     @FXML
@@ -71,12 +73,21 @@ public class Controller implements Initializable {
         Pokemon pokemon = new Pokemon("test", 1, 11111, 111);
         pokemoni.chytPokemona(pokemon);
         refresh();
+
     }
 
     public void predejController() {
         komunikaceControlleru.setController(this);
     }
 
+
+    public void setControllerSouboje(ControllerSouboje controllerSouboje) {
+        this.controllerSouboje = controllerSouboje;
+    }
+
+    public void predejControllerControlleruSouboje() {
+        controllerSouboje.setController(this);
+    }
 
     public void refresh() {
         setListOfExits();
@@ -139,6 +150,7 @@ public class Controller implements Initializable {
                         Gui gui = start.getGui();
                         gui.getKomunikaceControlleru().setPredavanyPokemon(currentPokemon);
                         gui.startSouboje();
+                        predejControllerControlleruSouboje();
                     }
                 }
                 refresh();
@@ -220,8 +232,8 @@ public class Controller implements Initializable {
     private void onActionMenuBarNovaHra(ActionEvent actionEvent) {
         //TODO zavřít staré okno.
         listCleaner();
+        hra.newGame();
         gui.startMain();
-
         refresh();
     }
 

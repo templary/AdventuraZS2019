@@ -55,6 +55,29 @@ public class Hra implements IHra {
 
     }
 
+    public void newGame() {
+        herniPlan = new HerniPlan();
+        platnePrikazy = new SeznamPrikazu();
+
+        platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
+        platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazKonec(this));
+
+
+        batoh = new Batoh();
+        pokemoni = new Pokemoni();
+
+
+        platnePrikazy.vlozPrikaz(new PrikazProhledej(this.herniPlan, this.batoh, this.pokemoni));
+        platnePrikazy.vlozPrikaz(new PrikazBatoh(this.batoh, this.herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazChytni(this.herniPlan, this.pokemoni));
+        platnePrikazy.vlozPrikaz(new PrikazBojuj(this.herniPlan, this.pokemoni, this));
+        platnePrikazy.vlozPrikaz(new PrikazTrenuj(this.batoh, this.pokemoni));
+        platnePrikazy.vlozPrikaz(new PrikazInfo(this.herniPlan, this.pokemoni));
+        platnePrikazy.vlozPrikaz(new PrikazFinal(this.herniPlan, this.pokemoni, this));
+        platnePrikazy.vlozPrikaz(new PrikazBojujProGUI(this.herniPlan, this.pokemoni, this));
+    }
+
     /**
      * Vrátí úvodní zprávu pro hráče.
      */

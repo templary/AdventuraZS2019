@@ -27,21 +27,22 @@ import java.io.IOException;
  */
 
 public class Gui {
-    private boolean isInGame = false;
     private Hra hra;
     private Start start;
     private Batoh batoh = new Batoh();
     private Pokemoni pokemoni = new Pokemoni();
     private Controller controller;
+    private Controller mainController;
     private KomunikaceControlleru komunikaceControlleru = new KomunikaceControlleru(hra);
+
 
     @FXML
     private ImageView imageMapa = new ImageView();
-
     Gui(Hra hra, Start start) {
         this.hra = hra;
         this.start = start;
     }
+
 
     void startMain() {
         Parent root;
@@ -54,10 +55,11 @@ public class Gui {
             stage.setScene(new Scene(root, 850, 900));
             Controller controller = loader.getController();
             this.controller = controller;
+            mainController = this.controller;
+
             controller.inicializace(hra);
             controller.setStartAndComunication(start, komunikaceControlleru, this);
             stage.show();
-            isInGame = true;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -79,6 +81,7 @@ public class Gui {
             controllerSouboje.setHra(hra);
             controllerSouboje.setKomunikaceControlleru(komunikaceControlleru);
             controllerSouboje.setStartAndGUI(start, this);
+            controller.setControllerSouboje(controllerSouboje);
             controllerSouboje.refresh();
         } catch (IOException e) {
             e.printStackTrace();
@@ -130,8 +133,8 @@ public class Gui {
             loader.setLocation(getClass().getResource("/info.fxml"));
             root = loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Tabulka pokémonů");
-            stage.setScene(new Scene(root, 623, 583));
+            stage.setTitle("Konec");
+            stage.setScene(new Scene(root, 325, 181));
             ControllerSouboje controllerSouboje = loader.getController();
             stage.show();
         } catch (IOException e) {

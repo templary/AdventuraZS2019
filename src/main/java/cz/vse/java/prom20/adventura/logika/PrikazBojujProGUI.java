@@ -67,10 +67,10 @@ class PrikazBojujProGUI implements IPrikaz {
         Pokemon souper = herniPlan.getAktualniMistnost().getPokemonPokudTuJe(parametr);
         Pokemon pokemonHrace = pokemoni.getPokemonPokudTuJe(bojovnik);
 
-        System.out.println("Tvůj pokémon: " + pokemonHrace.toString());
-        System.out.println("--------");
-        System.out.println("Protivník: " + souper.toString());
-        System.out.println("--------");
+        // System.out.println("Tvůj pokémon: " + pokemonHrace.toString());
+        // System.out.println("--------");
+        // System.out.println("Protivník: " + souper.toString());
+        // System.out.println("--------");
 
         int pokusy = 3;
 
@@ -80,8 +80,8 @@ class PrikazBojujProGUI implements IPrikaz {
             int randomNum = ThreadLocalRandom.current().nextInt(1, 6);
             int randomNum2 = ThreadLocalRandom.current().nextInt(1, 6);
 
-            System.out.println("Hodil jsi: " + randomNum + "\nPokémon " + souper.getJmenoPokemona() + " Hodil: " + randomNum2);
-            System.out.println("--------");
+            //System.out.println("Hodil jsi: " + randomNum + "\nPokémon " + souper.getJmenoPokemona() + " Hodil: " + randomNum2);
+            //System.out.println("--------");
 
             int souperStats = souper.getLevel() * souper.getSilaPokemona() * randomNum2;
             int pokemonHraceStats = pokemonHrace.getLevel() * pokemonHrace.getSilaPokemona() * randomNum;
@@ -90,12 +90,12 @@ class PrikazBojujProGUI implements IPrikaz {
                 herniPlan.getAktualniMistnost().odeberPokemona(souper);
                 pokemoni.chytPokemona(souper);
                 if (souper.getJmenoPokemona().equals("Piplup")) {
-                    return "Gratuluji, porazil jsi Piplup, vyhrál jsi!";
+                    return "Gratuluji, porazil jsi Piplupa, vyhrál jsi!";
                 } else {
                     return "Tvůj pokémon " + pokemonHrace.getJmenoPokemona() + " Vyhrál.\nNyní je " + souper.getJmenoPokemona() + " tvůj.";
                 }
             } else {
-                System.out.println("Bohuže jsi prohrál, máš ještě " + pokusy + " pokusy než ti pokémon uteče.");
+                //System.out.println("Bohuže jsi prohrál, máš ještě " + pokusy + " pokusy než ti pokémon uteče.");
                 pokusy--;
                 if (pokusy == 0) {
                     if (souper.getJmenoPokemona().equals("Piplup")) {

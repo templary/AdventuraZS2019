@@ -61,6 +61,8 @@ public interface IHra {
 
     Pokemoni getPokemoni();
 
+    void newGame();
+
 
     //Controller getController();
 
