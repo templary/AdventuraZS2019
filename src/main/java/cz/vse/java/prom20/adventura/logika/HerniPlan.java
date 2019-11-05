@@ -152,7 +152,7 @@ public class HerniPlan {
         Vec pokeball = new Vec("Pokébal", true, "Tohle je pokeball");
         Vec strom = new Vec("Strom", false, "Toto je starý a moudrý strom.");
         Vec hora = new Vec("Hora", false, "Vysoká hora");
-        Vec krev = new Vec("krev", false, "tratoliště krve");
+        Vec krev = new Vec("Krev", false, "tratoliště krve");
         Vec susenka = new Vec("Sušenka", true, "Sušenkou můžeš nakrmit pokémona.");
         Vec stul = new Vec("Stůl", false, "Stůl");
         Vec koberec = new Vec("Koberec", false, "Krásný koberec");

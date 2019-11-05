@@ -6,10 +6,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
@@ -194,16 +192,67 @@ public class Controller implements Initializable {
     @FXML
     private void setlistOfItemsInRoom() {
         listOfItemsInRoom.setItems(listSetter(hra.getHerniPlan().getAktualniMistnost().getNazvyVeci()));
+        listOfItemsInRoom.setCellFactory(param -> new ListCell<String>() {
+            private ImageView imageView = new ImageView();
+
+            @Override
+            public void updateItem(String name, boolean empty) {
+                super.updateItem(name, empty);
+                if (empty) {
+                    setText(null);
+                    setGraphic(null);
+                } else {
+                    Image vychodImage = new Image(getClass().getClassLoader().getResourceAsStream("imgItems/" + name + ".png"));
+                    imageView.setImage(vychodImage);
+                    setText(name);
+                    setGraphic(imageView);
+                }
+            }
+        });
     }
 
     @FXML
     private void setListOfPokemonsInRoom() {
         listOfPokemonsInRoom.setItems(listSetter(hra.getHerniPlan().getAktualniMistnost().getNazvyPokemonu()));
+        listOfPokemonsInRoom.setCellFactory(param -> new ListCell<String>() {
+            private ImageView imageView = new ImageView();
+
+            @Override
+            public void updateItem(String name, boolean empty) {
+                super.updateItem(name, empty);
+                if (empty) {
+                    setText(null);
+                    setGraphic(null);
+                } else {
+                    Image vychodImage = new Image(getClass().getClassLoader().getResourceAsStream("imgItems/Pokébal.png"));
+                    imageView.setImage(vychodImage);
+                    setText(name);
+                    setGraphic(imageView);
+                }
+            }
+        });
     }
 
     @FXML
     private void setListOfItemsInBackPack() {
         listOfItemsInBackPack.setItems(listSetter(batoh.getNazvyVeci()));
+        listOfItemsInBackPack.setCellFactory(param -> new ListCell<String>() {
+            private ImageView imageView = new ImageView();
+
+            @Override
+            public void updateItem(String name, boolean empty) {
+                super.updateItem(name, empty);
+                if (empty) {
+                    setText(null);
+                    setGraphic(null);
+                } else {
+                    Image vychodImage = new Image(getClass().getClassLoader().getResourceAsStream("imgItems/" + name + ".png"));
+                    imageView.setImage(vychodImage);
+                    setText(name);
+                    setGraphic(imageView);
+                }
+            }
+        });
     }
 
     @FXML
@@ -215,6 +264,23 @@ public class Controller implements Initializable {
     private void setlistOfPokemonsInPokeball() {
         //noinspection unchecked
         listOfPokemonsInPokeball.setItems(listSetter(pokemoni.getNazvyChycenychPokemonu()));
+        listOfPokemonsInPokeball.setCellFactory(param -> new ListCell<String>() {
+            private ImageView imageView = new ImageView();
+
+            @Override
+            public void updateItem(String name, boolean empty) {
+                super.updateItem(name, empty);
+                if (empty) {
+                    setText(null);
+                    setGraphic(null);
+                } else {
+                    Image vychodImage = new Image(getClass().getClassLoader().getResourceAsStream("imgItems/Pokébal.png"));
+                    imageView.setImage(vychodImage);
+                    setText(name);
+                    setGraphic(imageView);
+                }
+            }
+        });
     }
 
     private void settextLokace() {

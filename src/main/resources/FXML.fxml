@@ -95,17 +95,18 @@
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
                                                             prefWidth="100.0">
                                                     <children>
-                                                        <Text layoutX="82.0" layoutY="461.0" strokeType="OUTSIDE"
-                                                              strokeWidth="0.0" text="Právě jsi v:"
-                                                              textAlignment="CENTER">
+                                                        <Text layoutX="56.0" layoutY="462.0" strokeType="OUTSIDE"
+                                                              strokeWidth="0.0" style="-fx-text-alignment: center;"
+                                                              text="Právě jsi v:" textAlignment="CENTER"
+                                                              wrappingWidth="160.4697265625">
                                                             <font>
                                                                 <Font size="21.0"/>
                                                             </font>
                                                         </Text>
-                                                        <Text fx:id="textLokace" layoutX="36.0" layoutY="497.0"
+                                                        <Text fx:id="textLokace" layoutX="30.0" layoutY="508.0"
                                                               strokeType="OUTSIDE" strokeWidth="0.0"
-                                                              style="-fx-text-alignment: center;" text="test text"
-                                                              wrappingWidth="200.0">
+                                                              style="-fx-text-alignment: center;" text="test"
+                                                              wrappingWidth="213.0">
                                                             <font>
                                                                 <Font size="18.0"/>
                                                             </font>
