@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
@@ -17,10 +19,6 @@
                                     <items>
                                         <MenuItem fx:id="menuBarNovaHra" mnemonicParsing="false"
                                                   onAction="#onActionMenuBarNovaHra" text="Nová hra"/>
-                                        <MenuItem fx:id="menuBarNacist" mnemonicParsing="false"
-                                                  onAction="#onActionMenuBarNacist" text="Načíst"/>
-                                        <MenuItem fx:id="menuBarUlozit" mnemonicParsing="false"
-                                                  onAction="#onActionMenuBarUlozit" text="Uložit"/>
                                         <MenuItem fx:id="menuBarUkoncit" mnemonicParsing="false"
                                                   onAction="#onActionMenuBarUkoncit" text="Ukončit"/>
                                     </items>
@@ -105,7 +103,7 @@
                                                         </Text>
                                                         <Text fx:id="textLokace" layoutX="30.0" layoutY="508.0"
                                                               strokeType="OUTSIDE" strokeWidth="0.0"
-                                                              style="-fx-text-alignment: center;" text="test"
+                                                              style="-fx-text-alignment: center;" text="text"
                                                               wrappingWidth="213.0">
                                                             <font>
                                                                 <Font size="18.0"/>
@@ -114,9 +112,19 @@
                                                         <ListView fx:id="listOfExits" layoutX="36.0" layoutY="71.0"
                                                                   onMouseClicked="#onClickListOfExits"
                                                                   prefHeight="200.0" prefWidth="200.0"/>
-                                                        <Button fx:id="buttonTestBoj" layoutX="101.0" layoutY="333.0"
-                                                                mnemonicParsing="false" onAction="#handleButtonBoj"
-                                                                text="Button"/>
+                                                        <Text layoutX="97.0" layoutY="50.0" strokeType="OUTSIDE"
+                                                              strokeWidth="0.0" text="Můžeš jít do:">
+                                                            <font>
+                                                                <Font size="15.0"/>
+                                                            </font>
+                                                        </Text>
+                                                        <ImageView fitHeight="76.0" fitWidth="200.0" layoutX="37.0"
+                                                                   layoutY="331.0" pickOnBounds="true"
+                                                                   preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@pokemonlogo.png"/>
+                                                            </image>
+                                                        </ImageView>
                                                     </children>
                                                 </AnchorPane>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -166,25 +174,18 @@
                                 </AnchorPane>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                     <children>
-                                        <SplitPane dividerPositions="0.5" layoutX="-1.0" layoutY="1.0"
-                                                   prefHeight="285.0" prefWidth="850.0">
+                                        <SplitPane layoutX="-1.0" layoutY="1.0" prefHeight="285.0" prefWidth="850.0">
                                             <items>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
                                                             prefWidth="100.0">
                                                     <children>
-                                                        <TextField fx:id="terminal" layoutX="92.0" layoutY="74.0"
-                                                                   prefHeight="36.0" prefWidth="236.0"/>
-                                                        <Button fx:id="buttonTerminal" layoutX="181.0" layoutY="159.0"
-                                                                mnemonicParsing="false" onAction="#handleButtonTerminal"
-                                                                text="Button"/>
-                                                    </children>
-                                                </AnchorPane>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
-                                                            prefWidth="100.0">
-                                                    <children>
                                                         <TextArea fx:id="textVypis" layoutX="10.0" layoutY="37.0"
-                                                                  prefHeight="232.0" prefWidth="400.0"/>
-                                                        <Text layoutX="151.0" layoutY="20.0" strokeType="OUTSIDE"
+                                                                  prefHeight="232.0" prefWidth="826.0">
+                                                            <font>
+                                                                <Font size="24.0"/>
+                                                            </font>
+                                                        </TextArea>
+                                                        <Text layoutX="372.0" layoutY="20.0" strokeType="OUTSIDE"
                                                               strokeWidth="0.0" text="Výpis událostí">
                                                             <font>
                                                                 <Font size="18.0"/>

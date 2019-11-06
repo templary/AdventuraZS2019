@@ -89,6 +89,13 @@ public class Hra implements IHra {
                 herniPlan.getAktualniMistnost().dlouhyPopis();
     }
 
+    public String vratUvitaniProGUI() {
+        return "Vítejte!\n" +
+                "Právě jsi vstoupil do úžasného světa pokémonů\n" + "Tvůj úkol je tak jednoduchý a přitom velice složitý. Chyť je všechny!\n" +
+                "\n" +
+                herniPlan.getAktualniMistnost().dlouhyPopis();
+    }
+
     /**
      * Vrátí závěrečnou zprávu pro hráče.
      */

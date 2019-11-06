@@ -20,6 +20,8 @@ public interface IHra {
      */
     String vratUvitani();
 
+    String vratUvitaniProGUI();
+
     /**
      * Vrátí závěrečnou zprávu pro hráče.
      *

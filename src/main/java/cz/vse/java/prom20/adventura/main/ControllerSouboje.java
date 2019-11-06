@@ -131,10 +131,13 @@ public class ControllerSouboje implements Initializable {
 
     @FXML
     private void handleButtonBoj(javafx.event.ActionEvent event) {
-
+        if (bylUzBoj) {
+            textAreaVysledek.setText("Boj už proběhl, ukonči okno a vyber jiného\npokémona. ");
+        }
         if (!comboVyberPokemona.getSelectionModel().isEmpty()) {
             if (!bylUzBoj && clickCounter != 1) {
                 String vysledekSouboje = hra.zpracujPrikaz("bojujgui " + getSouperuvPokemon().getJmenoPokemona() + " " + getTvujPokemon().getJmenoPokemona());
+                bylUzBoj = true;
                 if (vysledekSouboje.contains("Piplup")) {
                     textAreaVysledek.setText(vysledekSouboje);
                     buttonBoj.setText("Konec");
@@ -149,6 +152,7 @@ public class ControllerSouboje implements Initializable {
                 }
             }
             controller.refresh();
+
         }
     }
 
@@ -168,8 +172,6 @@ public class ControllerSouboje implements Initializable {
     }
 
     public void handleButtonInfoWindowKonec(ActionEvent actionEvent) {
-        //System.out.println("Konec");
-
         CasovanyKonecHry casovanyKonecHry = new CasovanyKonecHry();
         casovanyKonecHry.exitTimer();
         //TODO vypsat že se hra ukonči

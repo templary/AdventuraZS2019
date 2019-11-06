@@ -53,7 +53,6 @@ public class Controller implements Initializable {
     private TextArea textVypis;
     @FXML
     private ImageView imageMapa = new ImageView();
-
     void setStartAndComunication(Start start, KomunikaceControlleru komunikaceControlleru, Gui gui) {
         this.start = start;
         this.komunikaceControlleru = komunikaceControlleru;
@@ -66,7 +65,7 @@ public class Controller implements Initializable {
         this.hra = iHra;
         batoh = iHra.getBatoh();
         pokemoni = iHra.getPokemoni();
-        textVypis.setText(this.hra.vratUvitani());
+        textVypis.setText(this.hra.vratUvitaniProGUI());
         //TODO testovací pokemon
         Pokemon pokemon = new Pokemon("test", 1, 11111, 111);
         pokemoni.chytPokemona(pokemon);
@@ -167,6 +166,9 @@ public class Controller implements Initializable {
     private void handleButtonTerminal(javafx.event.ActionEvent event) {
         System.out.println("čtení");
         System.out.println(terminal.getText());
+        if (terminal.getText().equals("bojuj")) {
+            textVypis.setText("Tento příkaz je pouze pro textové rozhraní!");
+        }
 
         String odpoved = hra.zpracujPrikaz(terminal.getText());
         textVypis.setText(odpoved);
@@ -300,24 +302,15 @@ public class Controller implements Initializable {
         listCleaner();
         hra.newGame();
         gui.startMain();
+        predejController();
+        //gui.terminateMainWindow();
         refresh();
-    }
-
-    @FXML
-    private void onActionMenuBarNacist(ActionEvent actionEvent) {
-        //TODO metoda na načítání stavu hry z .txt
-    }
-
-    @FXML
-    private void onActionMenuBarUlozit(ActionEvent actionEvent) {
-
     }
 
     @FXML
     private void onActionMenuBarUkoncit(ActionEvent actionEvent) {
         hra.konecHry();
         textVypis.setText(hra.vratEpilog());
-
         CasovanyKonecHry casovanyKonecHry = new CasovanyKonecHry();
         casovanyKonecHry.exitTimer();
         textVypis.setText("Hra se ukončí za 5 sekund.");

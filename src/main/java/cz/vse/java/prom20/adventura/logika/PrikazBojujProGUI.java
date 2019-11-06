@@ -49,28 +49,24 @@ class PrikazBojujProGUI implements IPrikaz {
 
         }
 
+
         String parametr = parametry[0];
-
-
         Pokemon p = herniPlan.getAktualniMistnost().getPokemonPokudTuJe(parametr);
+
         String bojovnik = parametry[1];
         if (p == null) {
             return parametr + " tu není";
         } else {
             if (herniPlan.getAktualniMistnost().getUrovenHernihoPlanu() == 2) {
                 return "Tady bojovat nemusíš, pouzij příkaz chytni jmeno_pokemona";
-            } else {
-/*                if (herniPlan.getAktualniMistnost().getSeznamPokemonuJakoText() != null) {
-                }*/
-            }
+            } /*else {
+                if (herniPlan.getAktualniMistnost().getSeznamPokemonuJakoText() != null) {
+                }
+            }*/
         }
         Pokemon souper = herniPlan.getAktualniMistnost().getPokemonPokudTuJe(parametr);
         Pokemon pokemonHrace = pokemoni.getPokemonPokudTuJe(bojovnik);
 
-        // System.out.println("Tvůj pokémon: " + pokemonHrace.toString());
-        // System.out.println("--------");
-        // System.out.println("Protivník: " + souper.toString());
-        // System.out.println("--------");
 
         int pokusy = 3;
 
