@@ -174,7 +174,6 @@ public class ControllerSouboje implements Initializable {
     public void handleButtonInfoWindowKonec(ActionEvent actionEvent) {
         CasovanyKonecHry casovanyKonecHry = new CasovanyKonecHry();
         casovanyKonecHry.exitTimer();
-        //TODO vypsat že se hra ukonči
     }
 
 

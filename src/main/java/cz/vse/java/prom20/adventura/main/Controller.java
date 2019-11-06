@@ -73,20 +73,20 @@ public class Controller implements Initializable {
 
     }
 
-    public void predejController() {
+    private void predejController() {
         komunikaceControlleru.setController(this);
     }
 
 
-    public void setControllerSouboje(ControllerSouboje controllerSouboje) {
+    void setControllerSouboje(ControllerSouboje controllerSouboje) {
         this.controllerSouboje = controllerSouboje;
     }
 
-    public void predejControllerControlleruSouboje() {
+    private void predejControllerControlleruSouboje() {
         controllerSouboje.setController(this);
     }
 
-    public void refresh() {
+    void refresh() {
         setListOfExits();
         setListOfPokemonsInRoom();
         setlistOfItemsInRoom();
@@ -184,7 +184,7 @@ public class Controller implements Initializable {
         return FXCollections.observableArrayList(stringSet);
     }
 
-    public void listCleaner() {
+    private void listCleaner() {
         listOfItemsInRoom.getItems().clear();
         listOfItemsInBackPack.getItems().clear();
         listOfPokemonsInPokeball.getItems().clear();
@@ -298,7 +298,6 @@ public class Controller implements Initializable {
 
     @FXML
     private void onActionMenuBarNovaHra(ActionEvent actionEvent) {
-        //TODO zavřít staré okno.
         listCleaner();
         hra.newGame();
         gui.startMain();
