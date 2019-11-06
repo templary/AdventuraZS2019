@@ -162,10 +162,6 @@ public class ControllerSouboje implements Initializable {
         comboVyberPokemona();
     }
 
-    public void setToKomunikaceBylUzBoj() {
-        komunikaceControlleru.setUzBojProbehl(bylUzBoj);
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

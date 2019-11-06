@@ -6,7 +6,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -17,18 +20,12 @@ import java.util.Set;
 
 
 public class Controller implements Initializable {
-    private Mistnost mistnost;
-    private Vec vec;
     private Batoh batoh;
-    private HerniPlan herniPlan;
     private Pokemoni pokemoni;
     private Start start;
-    private Pokemon pokemon;
     private ControllerSouboje controllerSouboje;
     private KomunikaceControlleru komunikaceControlleru;
-    private String predavanyPokemon;
     private Gui gui;
-    private UkladaniHry ukladaniHry;
 
 
     @FXML
@@ -37,8 +34,6 @@ public class Controller implements Initializable {
     private MenuItem menuBarNovaHra;
     @FXML
     private TextArea text = new TextArea();
-    @FXML
-    private TextField terminal;
     @FXML
     private ListView<String> listOfItemsInRoom = new ListView<>();
     @FXML
@@ -51,8 +46,9 @@ public class Controller implements Initializable {
     private ListView<String> listOfExits = new ListView<>();
     @FXML
     private TextArea textVypis;
+
     @FXML
-    private ImageView imageMapa = new ImageView();
+        //private ImageView imageMapa = new ImageView();
     void setStartAndComunication(Start start, KomunikaceControlleru komunikaceControlleru, Gui gui) {
         this.start = start;
         this.komunikaceControlleru = komunikaceControlleru;
@@ -153,29 +149,6 @@ public class Controller implements Initializable {
                 refresh();
             }
         });
-    }
-
-    @FXML
-    private void handleButtonBoj(javafx.event.ActionEvent event) {
-        System.out.println("boj");
-        System.out.println(predavanyPokemon);
-    }
-
-
-    @FXML
-    private void handleButtonTerminal(javafx.event.ActionEvent event) {
-        System.out.println("čtení");
-        System.out.println(terminal.getText());
-        if (terminal.getText().equals("bojuj")) {
-            textVypis.setText("Tento příkaz je pouze pro textové rozhraní!");
-        }
-
-        String odpoved = hra.zpracujPrikaz(terminal.getText());
-        textVypis.setText(odpoved);
-        refresh();
-        System.out.println(batoh.getNazvyVeci());
-
-
     }
 
 

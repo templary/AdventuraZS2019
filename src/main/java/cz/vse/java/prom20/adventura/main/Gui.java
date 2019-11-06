@@ -53,7 +53,7 @@ public class Gui {
             root = loader.load();
             Stage stage = new Stage();
             mainStage = stage;
-            stage.setTitle("Souboje");
+            stage.setTitle("Pokemon Game");
             stage.setScene(new Scene(root, 850, 900));
             Controller controller = loader.getController();
             this.controller = controller;

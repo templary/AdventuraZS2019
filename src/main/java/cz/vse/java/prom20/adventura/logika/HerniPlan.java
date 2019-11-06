@@ -19,7 +19,7 @@ public class HerniPlan {
 
     private Mistnost aktualniMistnost;
     private Set<Mistnost> seznamMistnosti;
-    private Set<Pokemon> seznamPokemonu;
+    // private Set<Pokemon> seznamPokemonu;
 
     /**
      * Konstruktor který vytváří jednotlivé prostory a propojuje je pomocí východů.
@@ -27,7 +27,7 @@ public class HerniPlan {
      */
     public HerniPlan() {
         this.seznamMistnosti = new HashSet<>();
-        this.seznamPokemonu = new HashSet<>();
+        //this.seznamPokemonu = new HashSet<>();
         zalozProstoryHry();
 
     }
