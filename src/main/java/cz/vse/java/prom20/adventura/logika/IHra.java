@@ -65,9 +65,6 @@ public interface IHra {
 
     void newGame();
 
-
-    //Controller getController();
-
     Hra getHra();
 
 }

@@ -39,6 +39,7 @@ public class Gui {
 
     @FXML
     private ImageView imageMapa = new ImageView();
+
     Gui(Hra hra, Start start) {
         this.hra = hra;
         this.start = start;
@@ -61,6 +62,7 @@ public class Gui {
             controller.inicializace(hra);
             controller.setStartAndComunication(start, komunikaceControlleru, this);
             stage.show();
+            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -88,6 +90,7 @@ public class Gui {
             controllerSouboje.setStartAndGUI(start, this);
             controller.setControllerSouboje(controllerSouboje);
             controllerSouboje.refresh();
+            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -107,6 +110,7 @@ public class Gui {
             Image image = new Image("file:mapa.png");
             imageMapa.setImage(image);
             imageMapa.setCache(true);
+            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -126,6 +130,7 @@ public class Gui {
             Image image = new Image("file:pokemoni.png");
             imageMapa.setImage(image);
             imageMapa.setCache(true);
+            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -142,6 +147,7 @@ public class Gui {
             stage.setScene(new Scene(root, 325, 181));
             ControllerSouboje controllerSouboje = loader.getController();
             stage.show();
+            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
